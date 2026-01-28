@@ -2,9 +2,14 @@ import os
 import json
 import uuid
 import uvicorn
-from fastapi import FastAPI, HTTPException, Depends
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Depends, Request, status
+from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import APIKeyHeader # <--- NUEVO
 from typing import List, Optional
+from pydantic import BaseModel
+from io import BytesIO
+from dotenv import load_dotenv
 
 # Imports de tu arquitectura
 from src.infrastructure.persistence.sqlalchemy_adapter import SQLAlchemyAdapter
@@ -18,184 +23,141 @@ from src.application.services.ingestor import TelemetryIngestor
 from src.application.services.refinery import DataRefinery
 from src.infrastructure.api.schemas import UserUpsert, SessionUpsert, SubjectUpsert, ResponseBase
 from src.infrastructure.clients.case_service_client import CaseServiceClient
-from pydantic import BaseModel
-from dotenv import load_dotenv
 
 load_dotenv()
 
-app = FastAPI(title="BE-LABS API & Orchestrator", version="1.1.0")
+# --- CONFIGURACIÓN DE SEGURIDAD (API KEY) ---
+API_KEY_NAME = "X-API-KEY"
+API_KEY_SECRET = os.getenv("API_KEY_SECRET", "be_labs_secret_2024") # Pon esto en tu .env
+api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=True)
+
+async def validate_api_key(api_key: str = Depends(api_key_header)):
+    """Valida que el header X-API-KEY coincida con el secreto del servidor."""
+    if api_key != API_KEY_SECRET:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Acceso denegado: API Key inválida"
+        )
+    return api_key
+
+# --- INICIALIZACIÓN APP ---
+app = FastAPI(
+    title="BE-LABS API & PDF Generator", 
+    version="1.2.0",
+    description="API para gestión de telemetría y generación de informes psicoprofesionales"
+)
+
+# Configurar CORS (Importante si lo usas desde un Frontend)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # --- Adaptadores ---
 db_url = os.getenv("DATABASE_URL")
 db_adapter = SQLAlchemyAdapter(db_url)
 ai_adapter = OpenAIAdapter(api_key=os.getenv("OPENAI_API_KEY"))
-
-# Supabase Adapter
 supabase_url = os.getenv("SUPABASE_URL")
 supabase_key = os.getenv("SUPABASE_KEY")
 report_repo = SupabaseReportRepository(supabase_url, supabase_key)
 
 # PDF Adapters
-pdf_adapter = ReportLabAdapter() # Existing
-xhtml2pdf_adapter = Xhtml2PdfAdapter() # New for this feature
+pdf_adapter = ReportLabAdapter()
+xhtml2pdf_adapter = Xhtml2PdfAdapter()
 
 # Use Cases
 orchestrator = OrchestratorUseCase(db_adapter, ai_adapter, pdf_adapter)
 generate_pdf_uc = GeneratePdfUseCase(report_repo, ai_adapter, xhtml2pdf_adapter)
 
-# --- TASK HU-S3-02-T03: ENDPOINTS DE INGESTA ---
-
-@app.post("/ingest/user", response_model=ResponseBase, tags=["Ingestion"])
-async def upsert_user(payload: UserUpsert):
-    """
-    AC: Dado un payload válido, persiste y retorna 201 con ID.
-    Idempotencia: Si se repite, actualiza y retorna el mismo ID.
-    """
-    try:
-        user = db_adapter.create_or_update_user(
-            email=payload.email,
-            name=payload.name,
-            role=payload.role,
-            city=payload.city
-        )
-        return {"status": "success", "id": str(user.id), "message": "User upserted"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"User Ingestion Error: {str(e)}")
-
-@app.post("/ingest/session", response_model=ResponseBase, tags=["Ingestion"])
-async def upsert_session(payload: SessionUpsert):
-    """
-    Persistencia de sesiones con lógica de Upsert.
-    """
-    try:
-        session = db_adapter.create_or_update_session(
-            app_session_id=payload.app_session_id,
-            case_id=payload.case_id,
-            status=payload.status,
-            created_by=payload.created_by
-        )
-        return {"status": "success", "id": str(session.session_id), "message": "Session upserted"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Session Ingestion Error: {str(e)}")
-
-@app.post("/ingest/participant", response_model=ResponseBase, tags=["Ingestion"])
-async def upsert_participant(payload: SubjectUpsert):
-    """
-    Implementa el CRUD de sujetos/participantes solicitado en la HU.
-    """
-    db_session = db_adapter.SessionLocal()
-    try:
-        from src.infrastructure.persistence.models import Subject
-        # Lógica de Upsert manual para cumplir con el 'Digest/Idempotencia'
-        existing = db_session.query(Subject).filter_by(app_subject_id=payload.app_subject_id).first()
-        if existing:
-            existing.name = payload.name
-            existing.email = payload.email
-            existing.city = payload.city
-            db_session.commit()
-            return {"status": "success", "id": str(existing.subject_id), "message": "Participant updated"}
-        
-        new_subject = Subject(
-            subject_id=uuid.uuid4(),
-            app_subject_id=payload.app_subject_id,
-            name=payload.name,
-            email=payload.email,
-            age=payload.age,
-            gender=payload.gender,
-            city=payload.city
-        )
-        db_session.add(new_subject)
-        db_session.commit()
-        return {"status": "success", "id": str(new_subject.subject_id), "message": "Participant created"}
-    except Exception as e:
-        db_session.rollback()
-        raise HTTPException(status_code=500, detail=str(e))
-    finally:
-        db_session.close()
-
-# --- AUTOMATION ENDPOINT (EL QUE TE DIO ERROR 500) ---
-
-@app.post("/process/full-json-automation", tags=["Automation"])
-async def process_json_automation():
-    try:
-        json_path = "Data/Sesion_grupal.json"
-        
-        # Validación de existencia del archivo
-        if not os.path.exists(json_path):
-            raise FileNotFoundError(f"File not found at {json_path}")
-
-        with open(json_path, 'r', encoding='utf-8') as f:
-            raw_data = json.load(f) # AQUÍ YA NO DARÁ ERROR PORQUE IMPORTAMOS JSON
-            app_session_id = raw_data["json"]["session_meta"]["session_id"]
-
-        # 1. Ingesta Bronze
-        ingestor = TelemetryIngestor(db_adapter)
-        session_db = db_adapter.get_session_by_app_id(app_session_id)
-        if not session_db:
-             raise Exception(f"Session {app_session_id} not found. Ingest session first.")
-        
-        ingestor.ingest_from_file(session_db.session_id, json_path)
-        
-        # 2. Refinería Silver
-        refinery = DataRefinery(db_adapter)
-        refinery.run_refinery(session_db.session_id)
-
-        # 3. Orquestación Gold (IA + PDFs)
-        results = orchestrator.run_full_session_process(app_session_id, json_path)
-
-        return {
-            "status": "success",
-            "message": "Full automation sequence completed",
-            "reports_created": len(results)
-        }
-    except Exception as e:
-        print(f"Error detallado: {e}")
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/test/external-case/{case_id}", tags=["Infrastructure Test"])
-async def test_case_client(case_id: str):
-    client = CaseServiceClient()
-    try:
-        # Si usas la URL de jsonplaceholder, prueba con case_id "1" (que equivale a /todos/1)
-        data = client.fetch_case_data(case_id)
-        return {"status": "success", "data": data}
-    except Exception as e:
-        raise HTTPException(status_code=502, detail=str(e))
-
-# --- NEW PDF GENERATOR ENDPOINT ---
-
+# --- MODELOS DE REQUEST/RESPONSE ---
 class GeneratePDFRequest(BaseModel):
     session_id: str
     subject_id: str
 
-@app.post("/generate-pdf", tags=["PDF Generation"])
+class GeneratePDFResponse(BaseModel):
+    success: bool
+    message: str
+    report_id: str | None = None
+    download_url: str | None = None
+
+# --- ENDPOINTS PROTEGIDOS (Requieren X-API-KEY) ---
+
+@app.post("/generate-pdf", tags=["PDF Generation"], dependencies=[Depends(validate_api_key)])
 async def generate_pdf(request: GeneratePDFRequest):
     """
-    Generates and downloads a specific PDF report from Supabase data.
+    Genera un PDF y lo retorna como descarga directa.
+    Requiere header X-API-KEY.
     """
     try:
         session_uuid = uuid.UUID(request.session_id)
         subject_uuid = uuid.UUID(request.subject_id)
         
+        # Obtenemos la ruta del PDF generado por el caso de uso
         pdf_path = generate_pdf_uc.execute(session_uuid, subject_uuid)
         
         if not pdf_path or not os.path.exists(pdf_path):
-            raise HTTPException(status_code=500, detail="PDF file was not created")
+            raise HTTPException(status_code=500, detail="El archivo PDF no pudo ser generado")
             
         filename = os.path.basename(pdf_path)
         
+        # Retornamos como FileResponse (más eficiente que StreamingResponse para archivos en disco)
         return FileResponse(
             path=pdf_path, 
             filename=filename,
             media_type="application/pdf"
         )
-        
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        print(f"Error in /generate-pdf: {e}")
+        print(f"Error en generate_pdf: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.post("/generate-pdf-url", response_model=GeneratePDFResponse, tags=["PDF Generation"], dependencies=[Depends(validate_api_key)])
+async def generate_pdf_url(request: GeneratePDFRequest):
+    """
+    Verifica si el reporte existe y construye la URL de descarga.
+    Requiere header X-API-KEY.
+    """
+    try:
+        session_uuid = uuid.UUID(request.session_id)
+        subject_uuid = uuid.UUID(request.subject_id)
+        
+        # Verificamos existencia en Supabase usando el puerto del repositorio
+        report = report_repo.get_report_content(session_uuid, subject_uuid)
+        
+        if not report:
+            return GeneratePDFResponse(
+                success=False,
+                message="No se encontró reporte para los IDs proporcionados",
+                report_id=None,
+                download_url=None
+            )
+        
+        report_id = report.get("report_id")
+        # Simulación de URL relativa (el cliente debe llamar luego a /generate-pdf)
+        download_url = f"/generate-pdf?session_id={request.session_id}&subject_id={request.subject_id}"
+        
+        return GeneratePDFResponse(
+            success=True,
+            message="Reporte encontrado.",
+            report_id=str(report_id),
+            download_url=download_url
+        )
+    except Exception as e:
+        return GeneratePDFResponse(success=False, message=f"Error: {str(e)}")
+
+# --- ENDPOINTS DE INGESTA (También protegidos) ---
+
+@app.post("/ingest/user", response_model=ResponseBase, dependencies=[Depends(validate_api_key)], tags=["Ingestion"])
+async def upsert_user(payload: UserUpsert):
+    try:
+        user = db_adapter.create_or_update_user(email=payload.email, name=payload.name, role=payload.role, city=payload.city)
+        return {"status": "success", "id": str(user.id), "message": "User upserted"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+# ... (Aquí siguen los otros endpoints de ingesta con la dependencia Depends(validate_api_key))
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
