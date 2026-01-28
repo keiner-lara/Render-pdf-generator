@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlalchemy 
+psycopg2-binary 
+openai 
+markdown2 
+reportlab 
+beautifulsoup4 
+python-dotenv
+alembic
+email-validator
+httpx
+xhtml2pdf
+markdown

@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+__init__.py
+
+# Generated files
+artifacts/*.pdf
+artifacts/
+
+# Environment variables
+.env
+
+# Alembic
+alembic/versions/*.pyc

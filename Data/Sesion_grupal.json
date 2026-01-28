@@ -1,0 +1,4217 @@
+{
+  "id_seccion": "SEC-GRP-HSL-POC-SESSION-03-NU-002",
+  "json": {
+    "spec_version": "0.3-proto",
+    "rubric_version": "HSE-r0",
+    "model_versions": {
+      "vision_model": "vision-proto-0.9",
+      "voice_model": "voice-proto-0.8",
+      "asr_model": "asr-proto-0.7"
+    },
+    "session_meta": {
+      "session_id": "HSL-POC-SESSION-03",
+      "case_id": "SEV2-AUTH-TOKEN",
+      "duration_ms": 1800000,
+      "participants_expected": 5,
+      "generated_at": "2026-01-02T15:10:00Z"
+    },
+    "compiled_at": "2026-01-11T20:52:14Z",
+    "compiled_from": {
+      "sections": [
+        {
+          "id_seccion": "SEC-IND-P4-NU-002",
+          "id_usuario": "Ana Ruiz"
+        },
+        {
+          "id_seccion": "SEC-IND-P1-NU-002",
+          "id_usuario": "Carlos Vega"
+        },
+        {
+          "id_seccion": "SEC-IND-P5-NU-002",
+          "id_usuario": "Diego Pérez"
+        },
+        {
+          "id_seccion": "SEC-IND-P2-NU-002",
+          "id_usuario": "Luis Martínez"
+        },
+        {
+          "id_seccion": "SEC-IND-P3-NU-002",
+          "id_usuario": "Marta González"
+        }
+      ],
+      "count_individual_sections": 5
+    },
+    "participants": [
+      {
+        "person_id": "P4",
+        "person_name": "Ana Ruiz",
+        "role_en_sesion": "PM / coordinación",
+        "media": {
+          "camera_id": "table_center",
+          "audio_source": "camera_far_field"
+        }
+      },
+      {
+        "person_id": "P1",
+        "person_name": "Carlos Vega",
+        "role_en_sesion": "Dev Sr / facilitador",
+        "media": {
+          "camera_id": "table_center",
+          "audio_source": "camera_far_field"
+        }
+      },
+      {
+        "person_id": "P5",
+        "person_name": "Diego Pérez",
+        "role_en_sesion": "Dev Jr / soporte",
+        "media": {
+          "camera_id": "table_center",
+          "audio_source": "camera_far_field"
+        }
+      },
+      {
+        "person_id": "P2",
+        "person_name": "Luis Martínez",
+        "role_en_sesion": "Dev (evaluado)",
+        "media": {
+          "camera_id": "table_center",
+          "audio_source": "camera_far_field"
+        }
+      },
+      {
+        "person_id": "P3",
+        "person_name": "Marta González",
+        "role_en_sesion": "QA",
+        "media": {
+          "camera_id": "table_center",
+          "audio_source": "camera_far_field"
+        }
+      }
+    ],
+    "individual_sections": [
+      {
+        "id_seccion": "SEC-IND-P4-NU-002",
+        "id_usuario": "Ana Ruiz",
+        "json": {
+          "spec_version": "0.3-proto",
+          "rubric_version": "HSE-r0",
+          "model_versions": {
+            "vision_model": "vision-proto-0.9",
+            "voice_model": "voice-proto-0.8",
+            "asr_model": "asr-proto-0.7"
+          },
+          "session_meta": {
+            "session_id": "HSL-POC-SESSION-03",
+            "case_id": "SEV2-AUTH-TOKEN",
+            "duration_ms": 1800000,
+            "participants_expected": 5,
+            "generated_at": "2026-01-02T15:10:00Z"
+          },
+          "person": {
+            "person_id": "P4",
+            "person_name": "Ana Ruiz",
+            "role_en_sesion": "PM / coordinación"
+          },
+          "media": {
+            "camera_id": "table_center",
+            "sync_offset_ms": 0,
+            "audio_source": "camera_far_field",
+            "privacy": {
+              "raw_media_persisted": false
+            }
+          },
+          "reports": [
+            {
+              "obs_id": "P4-R000",
+              "source_cell": "use_case",
+              "stream": "case_context",
+              "t_start_ms": 0,
+              "t_end_ms": 20000,
+              "payload": {
+                "scenario": "sprint simulado 30min: bug 401 intermitente por expiración/refresh de token",
+                "success_criteria": [
+                  "identificar hipótesis raíz",
+                  "acotar alcance (scope control)",
+                  "definir mitigación mínima viable",
+                  "acordar dueños y próximos pasos"
+                ],
+                "constraints": [
+                  "tiempo limitado",
+                  "audio far-field",
+                  "equipo de 5",
+                  "alta presión por entrega"
+                ],
+                "rubric_focus": [
+                  "RC",
+                  "AGT",
+                  "CA",
+                  "LID",
+                  "CC"
+                ]
+              }
+            },
+            {
+              "obs_id": "P4-R001",
+              "source_cell": "voice",
+              "stream": "diarization_segment",
+              "t_start_ms": 85000,
+              "t_end_ms": 112000,
+              "payload": {
+                "speaker_id": "S4",
+                "speaker_person_link": {
+                  "person_id": "P4",
+                  "p": 0.9
+                },
+                "overlap_flag": false,
+                "speech_activity": {
+                  "voiced_ratio": 0.66,
+                  "silence_ratio": 0.34
+                },
+                "confidence": 0.9
+              }
+            },
+            {
+              "obs_id": "P4-R002",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 85000,
+              "t_end_ms": 112000,
+              "payload": {
+                "volume_db": {
+                  "avg": 61.2,
+                  "p95": 64.6,
+                  "peak": 65.4
+                },
+                "pitch_hz": {
+                  "avg": 146,
+                  "p95": 160,
+                  "peak": 168
+                },
+                "speech_rate_ppm": 132,
+                "latency_s": {
+                  "avg": 1.1,
+                  "max": 1.8
+                },
+                "pause_ratio": 0.15,
+                "overlap_flag": false,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 0
+                },
+                "quality": {
+                  "snr_proxy_db": 12,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.83,
+                  "confidence": 0.88
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R003",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 112000,
+              "t_end_ms": 142000,
+              "payload": {
+                "asr_text": "Propongo acordar criterio de éxito y luego definir el plan en tres pasos: evidencia mínima, mitigación y decisión de alcance.",
+                "asr_confidence": 0.78,
+                "semantic_tags": [
+                  "mediation",
+                  "decision_framework",
+                  "scope_control"
+                ],
+                "argumentation": {
+                  "thesis": "enfoque estructurado de mediación",
+                  "premises": [
+                    "criterio de éxito",
+                    "evidencia mínima",
+                    "mitigación",
+                    "alcance"
+                  ],
+                  "structure_score": 0.86,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.85,
+                  "confidence": 0.91
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R004",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 100000,
+              "t_end_ms": 145000,
+              "payload": {
+                "posture": "open_upright",
+                "body_orientation": "towards_team",
+                "gaze_target": "team",
+                "eye_contact_pct": 0.82,
+                "gesture_tags": [
+                  "turn_balancing",
+                  "open_palms",
+                  "hand_calming"
+                ],
+                "fidgeting_level": 0.1,
+                "agitation_index": 0.12,
+                "quality": {
+                  "body_visible_ratio": 0.92,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R005",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 145000,
+              "t_end_ms": 146000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.72,
+                  "joy": 0.08,
+                  "anger": 0.03,
+                  "fear": 0.03,
+                  "sadness": 0.02,
+                  "surprise": 0.09,
+                  "disgust": 0.03
+                },
+                "valence": "neutral_positiva",
+                "arousal": "medio_bajo",
+                "quality": {
+                  "face_visible_ratio": 0.86,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R006",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 540000,
+              "t_end_ms": 575000,
+              "payload": {
+                "volume_db": {
+                  "avg": 61.8,
+                  "p95": 64.5,
+                  "peak": 65.2
+                },
+                "pitch_hz": {
+                  "avg": 149,
+                  "p95": 162,
+                  "peak": 168
+                },
+                "speech_rate_ppm": 136,
+                "latency_s": {
+                  "avg": 1.0,
+                  "max": 1.7
+                },
+                "pause_ratio": 0.14,
+                "overlap_flag": false,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 0
+                },
+                "quality": {
+                  "snr_proxy_db": 12,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.84,
+                  "confidence": 0.88
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R007",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 575000,
+              "t_end_ms": 620000,
+              "payload": {
+                "asr_text": "Para cerrar: evidencia primero, mitigación si aplica y dejamos el refactor fuera del sprint simulado.",
+                "asr_confidence": 0.79,
+                "semantic_tags": [
+                  "delivery_focus",
+                  "scope_control",
+                  "timeboxing"
+                ],
+                "argumentation": {
+                  "thesis": "cierre operativo con scope controlado",
+                  "premises": [
+                    "evidencia",
+                    "mitigación",
+                    "scope"
+                  ],
+                  "structure_score": 0.85,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.86,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R008",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 615000,
+              "t_end_ms": 640000,
+              "payload": {
+                "posture": "open",
+                "body_orientation": "towards_team",
+                "gaze_target": "team",
+                "eye_contact_pct": 0.77,
+                "gesture_tags": [
+                  "turn_balancing",
+                  "open_palms",
+                  "deescalation_gesture"
+                ],
+                "fidgeting_level": 0.12,
+                "agitation_index": 0.14,
+                "quality": {
+                  "body_visible_ratio": 0.93,
+                  "confidence": 0.94
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R009",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 640000,
+              "t_end_ms": 641000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.68,
+                  "joy": 0.1,
+                  "anger": 0.04,
+                  "fear": 0.03,
+                  "sadness": 0.02,
+                  "surprise": 0.1,
+                  "disgust": 0.03
+                },
+                "valence": "neutral_positiva",
+                "arousal": "medio_bajo",
+                "quality": {
+                  "face_visible_ratio": 0.86,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R010",
+              "source_cell": "voice",
+              "stream": "diarization_segment",
+              "t_start_ms": 915000,
+              "t_end_ms": 955000,
+              "payload": {
+                "speaker_id": "S4",
+                "speaker_person_link": {
+                  "person_id": "P4",
+                  "p": 0.89
+                },
+                "overlap_flag": true,
+                "speech_activity": {
+                  "voiced_ratio": 0.72,
+                  "silence_ratio": 0.28
+                },
+                "confidence": 0.88
+              }
+            },
+            {
+              "obs_id": "P4-R011",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 915000,
+              "t_end_ms": 955000,
+              "payload": {
+                "volume_db": {
+                  "avg": 63.0,
+                  "p95": 66.4,
+                  "peak": 67.2
+                },
+                "pitch_hz": {
+                  "avg": 152,
+                  "p95": 168,
+                  "peak": 176
+                },
+                "speech_rate_ppm": 142,
+                "latency_s": {
+                  "avg": 1.2,
+                  "max": 2.0
+                },
+                "pause_ratio": 0.13,
+                "overlap_flag": true,
+                "turn_taking": {
+                  "turns_count": 2,
+                  "interruptions_made": 0,
+                  "interruptions_received": 1
+                },
+                "quality": {
+                  "snr_proxy_db": 11,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.82,
+                  "confidence": 0.88
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R012",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 930000,
+              "t_end_ms": 965000,
+              "payload": {
+                "asr_text": "Estoy escuchando dos propuestas. Tomemos 2 minutos: definimos criterio de éxito, elegimos una mitigación y asignamos dueño.",
+                "asr_confidence": 0.78,
+                "semantic_tags": [
+                  "mediation",
+                  "decision_framework"
+                ],
+                "argumentation": {
+                  "thesis": "estructura de mediación",
+                  "premises": [
+                    "criterio de éxito",
+                    "mitigación",
+                    "dueño"
+                  ],
+                  "structure_score": 0.84,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.86,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R013",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 930000,
+              "t_end_ms": 960000,
+              "payload": {
+                "posture": "open",
+                "body_orientation": "towards_team",
+                "gaze_target": "team",
+                "eye_contact_pct": 0.8,
+                "gesture_tags": [
+                  "deescalation_gesture",
+                  "turn_balancing",
+                  "open_palms"
+                ],
+                "fidgeting_level": 0.1,
+                "agitation_index": 0.12,
+                "quality": {
+                  "body_visible_ratio": 0.93,
+                  "confidence": 0.94
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R014",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 960000,
+              "t_end_ms": 961000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.74,
+                  "joy": 0.08,
+                  "anger": 0.03,
+                  "fear": 0.03,
+                  "sadness": 0.02,
+                  "surprise": 0.07,
+                  "disgust": 0.03
+                },
+                "valence": "neutral_positiva",
+                "arousal": "medio_bajo",
+                "quality": {
+                  "face_visible_ratio": 0.85,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R015",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 1210000,
+              "t_end_ms": 1255000,
+              "payload": {
+                "asr_text": "Alineo decisiones: 1) dueños de instrumentación, 2) criterio de validación, 3) mitigación temporal, 4) refactor fuera de alcance.",
+                "asr_confidence": 0.77,
+                "semantic_tags": [
+                  "alignment",
+                  "scope_control",
+                  "agile_timeboxing"
+                ],
+                "argumentation": {
+                  "thesis": "alineación y cierre de acuerdos",
+                  "premises": [
+                    "dueños",
+                    "criterio de validación",
+                    "mitigación",
+                    "fuera de alcance"
+                  ],
+                  "structure_score": 0.86,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.84,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R016",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 1210000,
+              "t_end_ms": 1255000,
+              "payload": {
+                "volume_db": {
+                  "avg": 62.4,
+                  "p95": 66.1,
+                  "peak": 67.0
+                },
+                "pitch_hz": {
+                  "avg": 150,
+                  "p95": 166,
+                  "peak": 174
+                },
+                "speech_rate_ppm": 146,
+                "latency_s": {
+                  "avg": 1.1,
+                  "max": 1.8
+                },
+                "pause_ratio": 0.12,
+                "overlap_flag": false,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 0
+                },
+                "quality": {
+                  "snr_proxy_db": 12,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.83,
+                  "confidence": 0.89
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R017",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 1210000,
+              "t_end_ms": 1245000,
+              "payload": {
+                "posture": "upright",
+                "body_orientation": "team_then_screen",
+                "gaze_target": "team",
+                "eye_contact_pct": 0.76,
+                "gesture_tags": [
+                  "hand_explaining",
+                  "open_palms",
+                  "turn_balancing"
+                ],
+                "fidgeting_level": 0.12,
+                "agitation_index": 0.14,
+                "quality": {
+                  "body_visible_ratio": 0.92,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R018",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 1650000,
+              "t_end_ms": 1690000,
+              "payload": {
+                "asr_text": "Cierre final: cada quien confirma su acción. Si aparece evidencia nueva, reencuadramos y ajustamos sin culpas.",
+                "asr_confidence": 0.76,
+                "semantic_tags": [
+                  "psychological_safety",
+                  "reframe",
+                  "accountability"
+                ],
+                "argumentation": {
+                  "thesis": "cierre con seguridad psicológica",
+                  "premises": [
+                    "confirmación de acciones",
+                    "evidencia nueva",
+                    "ajuste sin culpa"
+                  ],
+                  "structure_score": 0.84,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.82,
+                  "confidence": 0.89
+                }
+              }
+            },
+            {
+              "obs_id": "P4-R019",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 1690000,
+              "t_end_ms": 1691000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.73,
+                  "joy": 0.09,
+                  "anger": 0.03,
+                  "fear": 0.03,
+                  "sadness": 0.02,
+                  "surprise": 0.07,
+                  "disgust": 0.03
+                },
+                "valence": "neutral_positiva",
+                "arousal": "bajo",
+                "quality": {
+                  "face_visible_ratio": 0.84,
+                  "confidence": 0.92
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id_seccion": "SEC-IND-P1-NU-002",
+        "id_usuario": "Carlos Vega",
+        "json": {
+          "spec_version": "0.3-proto",
+          "rubric_version": "HSE-r0",
+          "model_versions": {
+            "vision_model": "vision-proto-0.9",
+            "voice_model": "voice-proto-0.8",
+            "asr_model": "asr-proto-0.7"
+          },
+          "session_meta": {
+            "session_id": "HSL-POC-SESSION-03",
+            "case_id": "SEV2-AUTH-TOKEN",
+            "duration_ms": 1800000,
+            "participants_expected": 5,
+            "generated_at": "2026-01-02T15:10:00Z"
+          },
+          "person": {
+            "person_id": "P1",
+            "person_name": "Carlos Vega",
+            "role_en_sesion": "Dev Sr / facilitador"
+          },
+          "media": {
+            "camera_id": "table_center",
+            "sync_offset_ms": 0,
+            "audio_source": "camera_far_field",
+            "privacy": {
+              "raw_media_persisted": false
+            }
+          },
+          "reports": [
+            {
+              "obs_id": "P1-R001",
+              "source_cell": "voice",
+              "stream": "diarization_segment",
+              "t_start_ms": 20000,
+              "t_end_ms": 42000,
+              "payload": {
+                "speaker_id": "S1",
+                "speaker_person_link": {
+                  "person_id": "P1",
+                  "p": 0.94
+                },
+                "overlap_flag": false,
+                "speech_activity": {
+                  "voiced_ratio": 0.78,
+                  "silence_ratio": 0.22
+                },
+                "confidence": 0.92
+              }
+            },
+            {
+              "obs_id": "P1-R002",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 25000,
+              "t_end_ms": 55000,
+              "payload": {
+                "volume_db": {
+                  "avg": 68.1,
+                  "p95": 72.0,
+                  "peak": 73.0
+                },
+                "pitch_hz": {
+                  "avg": 142,
+                  "p95": 160,
+                  "peak": 168
+                },
+                "speech_rate_ppm": 135,
+                "latency_s": {
+                  "avg": 0.8,
+                  "max": 1.4
+                },
+                "pause_ratio": 0.12,
+                "turn_taking": {
+                  "turns_count": 2,
+                  "interruptions_made": 0,
+                  "interruptions_received": 1
+                },
+                "quality": {
+                  "snr_proxy_db": 17,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.96,
+                  "confidence": 0.95
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R003",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 26000,
+              "t_end_ms": 52000,
+              "payload": {
+                "posture": "open_upright",
+                "body_orientation": "towards_team",
+                "eye_contact_pct": 0.8,
+                "gaze_target": "team",
+                "head_pose_deg": {
+                  "yaw": 5,
+                  "pitch": -2,
+                  "roll": 1
+                },
+                "gesture_tags": [
+                  "open_palms",
+                  "turn_inviting",
+                  "hand_explaining"
+                ],
+                "fidgeting_level": 0.12,
+                "agitation_index": 0.18,
+                "quality": {
+                  "body_visible_ratio": 0.92,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R004",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 52000,
+              "t_end_ms": 53000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.62,
+                  "joy": 0.18,
+                  "anger": 0.05,
+                  "fear": 0.03,
+                  "sadness": 0.02,
+                  "surprise": 0.07,
+                  "disgust": 0.03
+                },
+                "valence": "positiva_moderada",
+                "arousal": "medio",
+                "quality": {
+                  "face_visible_ratio": 0.86,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R005",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 210000,
+              "t_end_ms": 255000,
+              "payload": {
+                "asr_text": "Dividamos el problema: reproducimos el error, aislamos causa y cerramos con mitigación mínima viable. Luego iteramos.",
+                "asr_confidence": 0.82,
+                "argumentation": {
+                  "thesis": "control por etapas",
+                  "premises": [
+                    "reproducibilidad",
+                    "aislamiento",
+                    "mitigación"
+                  ],
+                  "structure_score": 0.88,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.92,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R006",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 390000,
+              "t_end_ms": 420000,
+              "payload": {
+                "volume_db": {
+                  "avg": 66.9,
+                  "p95": 70.2,
+                  "peak": 71.0
+                },
+                "pitch_hz": {
+                  "avg": 146,
+                  "p95": 165,
+                  "peak": 170
+                },
+                "speech_rate_ppm": 138,
+                "latency_s": {
+                  "avg": 1.1,
+                  "max": 1.8
+                },
+                "pause_ratio": 0.15,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 0
+                },
+                "quality": {
+                  "snr_proxy_db": 16,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.94,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R007",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 390000,
+              "t_end_ms": 420000,
+              "payload": {
+                "posture": "upright",
+                "body_orientation": "team_then_screen",
+                "eye_contact_pct": 0.7,
+                "gaze_target": "screen_then_team",
+                "gesture_tags": [
+                  "finger_counting",
+                  "screen_pointing"
+                ],
+                "fidgeting_level": 0.18,
+                "agitation_index": 0.22,
+                "quality": {
+                  "body_visible_ratio": 0.9,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R008",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 690000,
+              "t_end_ms": 691000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.58,
+                  "joy": 0.08,
+                  "anger": 0.11,
+                  "fear": 0.04,
+                  "sadness": 0.03,
+                  "surprise": 0.12,
+                  "disgust": 0.04
+                },
+                "valence": "mixta",
+                "arousal": "medio_alto",
+                "quality": {
+                  "face_visible_ratio": 0.8,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R009",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 900000,
+              "t_end_ms": 945000,
+              "payload": {
+                "asr_text": "Necesitamos decidir: o mitigamos hoy o no llegamos. La solución perfecta queda fuera del sprint simulado.",
+                "asr_confidence": 0.78,
+                "argumentation": {
+                  "thesis": "priorizar entrega",
+                  "premises": [
+                    "tiempo limitado",
+                    "mitigación viable",
+                    "scope control"
+                  ],
+                  "structure_score": 0.84,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.9,
+                  "confidence": 0.91
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R010",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 900000,
+              "t_end_ms": 940000,
+              "payload": {
+                "volume_db": {
+                  "avg": 70.3,
+                  "p95": 73.1,
+                  "peak": 74.2
+                },
+                "pitch_hz": {
+                  "avg": 154,
+                  "p95": 176,
+                  "peak": 182
+                },
+                "speech_rate_ppm": 160,
+                "latency_s": {
+                  "avg": 1.8,
+                  "max": 2.6
+                },
+                "pause_ratio": 0.1,
+                "turn_taking": {
+                  "turns_count": 2,
+                  "interruptions_made": 1,
+                  "interruptions_received": 1
+                },
+                "quality": {
+                  "snr_proxy_db": 15,
+                  "clipping_ratio": 0.03,
+                  "coverage": 0.93,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R011",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 900000,
+              "t_end_ms": 930000,
+              "payload": {
+                "posture": "upright_slightly_tense",
+                "eye_contact_pct": 0.62,
+                "gesture_tags": [
+                  "hand_chop",
+                  "directive_pointing"
+                ],
+                "fidgeting_level": 0.22,
+                "agitation_index": 0.28,
+                "quality": {
+                  "body_visible_ratio": 0.89,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P1-R012",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 1500000,
+              "t_end_ms": 1501000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.64,
+                  "joy": 0.12,
+                  "anger": 0.06,
+                  "fear": 0.03,
+                  "sadness": 0.02,
+                  "surprise": 0.1,
+                  "disgust": 0.03
+                },
+                "valence": "neutral_positiva",
+                "arousal": "medio_bajo",
+                "quality": {
+                  "face_visible_ratio": 0.87,
+                  "confidence": 0.93
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id_seccion": "SEC-IND-P5-NU-002",
+        "id_usuario": "Diego Pérez",
+        "json": {
+          "spec_version": "0.3-proto",
+          "rubric_version": "HSE-r0",
+          "model_versions": {
+            "vision_model": "vision-proto-0.9",
+            "voice_model": "voice-proto-0.8",
+            "asr_model": "asr-proto-0.7"
+          },
+          "session_meta": {
+            "session_id": "HSL-POC-SESSION-03",
+            "case_id": "SEV2-AUTH-TOKEN",
+            "duration_ms": 1800000,
+            "participants_expected": 5,
+            "generated_at": "2026-01-02T15:10:00Z"
+          },
+          "person": {
+            "person_id": "P5",
+            "person_name": "Diego Pérez",
+            "role_en_sesion": "Dev Jr / soporte"
+          },
+          "media": {
+            "camera_id": "table_center",
+            "sync_offset_ms": 0,
+            "audio_source": "camera_far_field",
+            "privacy": {
+              "raw_media_persisted": false
+            }
+          },
+          "reports": [
+            {
+              "obs_id": "P5-R000",
+              "source_cell": "use_case",
+              "stream": "case_context",
+              "t_start_ms": 0,
+              "t_end_ms": 20000,
+              "payload": {
+                "scenario": "bug 401 intermitente; presión por entrega; junior aporta con observabilidad y checklist",
+                "rubric_focus": [
+                  "RF",
+                  "GE",
+                  "CA",
+                  "DS",
+                  "AGT"
+                ],
+                "constraints": [
+                  "audio far-field",
+                  "posible inhibición por jerarquía",
+                  "tiempo corto"
+                ]
+              }
+            },
+            {
+              "obs_id": "P5-R001",
+              "source_cell": "voice",
+              "stream": "diarization_segment",
+              "t_start_ms": 205000,
+              "t_end_ms": 245000,
+              "payload": {
+                "speaker_id": "S5",
+                "speaker_person_link": {
+                  "person_id": "P5",
+                  "p": 0.86
+                },
+                "overlap_flag": false,
+                "speech_activity": {
+                  "voiced_ratio": 0.58,
+                  "silence_ratio": 0.42
+                },
+                "confidence": 0.88
+              }
+            },
+            {
+              "obs_id": "P5-R002",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 210000,
+              "t_end_ms": 250000,
+              "payload": {
+                "volume_db": {
+                  "avg": 57.6,
+                  "p95": 60.8,
+                  "peak": 61.6
+                },
+                "pitch_hz": {
+                  "avg": 174,
+                  "p95": 194,
+                  "peak": 201
+                },
+                "speech_rate_ppm": 118,
+                "latency_s": {
+                  "avg": 2.6,
+                  "max": 3.5
+                },
+                "pause_ratio": 0.26,
+                "overlap_flag": false,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 1
+                },
+                "quality": {
+                  "snr_proxy_db": 10,
+                  "clipping_ratio": 0.03,
+                  "coverage": 0.78,
+                  "confidence": 0.83
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R003",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 240000,
+              "t_end_ms": 265000,
+              "payload": {
+                "posture": "closed",
+                "body_orientation": "slightly_away",
+                "gaze_target": "down",
+                "eye_contact_pct": 0.33,
+                "gesture_tags": [
+                  "self_touch",
+                  "minimal_gestures",
+                  "micro_shrug"
+                ],
+                "fidgeting_level": 0.39,
+                "agitation_index": 0.31,
+                "quality": {
+                  "body_visible_ratio": 0.88,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R004",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 265000,
+              "t_end_ms": 266000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.7,
+                  "joy": 0.03,
+                  "anger": 0.04,
+                  "fear": 0.1,
+                  "sadness": 0.05,
+                  "surprise": 0.05,
+                  "disgust": 0.03
+                },
+                "valence": "negativa_suave",
+                "arousal": "medio",
+                "quality": {
+                  "face_visible_ratio": 0.78,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R005",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 420000,
+              "t_end_ms": 460000,
+              "payload": {
+                "volume_db": {
+                  "avg": 58.2,
+                  "p95": 62.0,
+                  "peak": 63.1
+                },
+                "pitch_hz": {
+                  "avg": 176,
+                  "p95": 198,
+                  "peak": 206
+                },
+                "speech_rate_ppm": 124,
+                "latency_s": {
+                  "avg": 2.1,
+                  "max": 3.0
+                },
+                "pause_ratio": 0.24,
+                "overlap_flag": true,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 2
+                },
+                "quality": {
+                  "snr_proxy_db": 10,
+                  "clipping_ratio": 0.03,
+                  "coverage": 0.76,
+                  "confidence": 0.82
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R006",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 430000,
+              "t_end_ms": 470000,
+              "payload": {
+                "asr_text": "No estoy seguro, pero si agregamos logs con session_id y timestamp, podríamos ver si el 401 coincide con expiración.",
+                "asr_confidence": 0.74,
+                "semantic_tags": [
+                  "observability_first",
+                  "uncertainty_acknowledgement"
+                ],
+                "argumentation": {
+                  "contribution_type": "observability",
+                  "evidence_flag": true,
+                  "structure_score": 0.74,
+                  "impact": "habilita correlación temporal y reduce discusión especulativa"
+                },
+                "quality": {
+                  "coverage": 0.8,
+                  "confidence": 0.87
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R007",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 440000,
+              "t_end_ms": 475000,
+              "payload": {
+                "posture": "slightly_tense",
+                "body_orientation": "towards_team",
+                "gaze_target": "team",
+                "eye_contact_pct": 0.45,
+                "gesture_tags": [
+                  "hand_explaining_small",
+                  "self_touch"
+                ],
+                "fidgeting_level": 0.34,
+                "agitation_index": 0.28,
+                "quality": {
+                  "body_visible_ratio": 0.89,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R008",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 475000,
+              "t_end_ms": 476000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.64,
+                  "joy": 0.03,
+                  "anger": 0.05,
+                  "fear": 0.12,
+                  "sadness": 0.06,
+                  "surprise": 0.07,
+                  "disgust": 0.03
+                },
+                "valence": "mixta_negativa",
+                "arousal": "medio",
+                "quality": {
+                  "face_visible_ratio": 0.8,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R009",
+              "source_cell": "voice",
+              "stream": "diarization_segment",
+              "t_start_ms": 1080000,
+              "t_end_ms": 1120000,
+              "payload": {
+                "speaker_id": "S5",
+                "speaker_person_link": {
+                  "person_id": "P5",
+                  "p": 0.87
+                },
+                "overlap_flag": false,
+                "speech_activity": {
+                  "voiced_ratio": 0.64,
+                  "silence_ratio": 0.36
+                },
+                "confidence": 0.89
+              }
+            },
+            {
+              "obs_id": "P5-R010",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 1080000,
+              "t_end_ms": 1120000,
+              "payload": {
+                "asr_text": "Podemos agregar logs con session_id y timestamp para correlacionar el 401 con la expiración del token.",
+                "asr_confidence": 0.75,
+                "semantic_tags": [
+                  "observability_first",
+                  "evidence_flag"
+                ],
+                "argumentation": {
+                  "contribution_type": "observability",
+                  "evidence_flag": true,
+                  "structure_score": 0.78,
+                  "impact": "habilita decisión basada en evidencia"
+                },
+                "quality": {
+                  "coverage": 0.82,
+                  "confidence": 0.88
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R011",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 1080000,
+              "t_end_ms": 1110000,
+              "payload": {
+                "volume_db": {
+                  "avg": 60.4,
+                  "p95": 64.0,
+                  "peak": 65.0
+                },
+                "pitch_hz": {
+                  "avg": 168,
+                  "p95": 182,
+                  "peak": 188
+                },
+                "speech_rate_ppm": 132,
+                "latency_s": {
+                  "avg": 1.4,
+                  "max": 2.0
+                },
+                "pause_ratio": 0.18,
+                "overlap_flag": false,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 0
+                },
+                "quality": {
+                  "snr_proxy_db": 11,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.84,
+                  "confidence": 0.86
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R012",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 1110000,
+              "t_end_ms": 1130000,
+              "payload": {
+                "posture": "upright",
+                "body_orientation": "towards_team",
+                "gaze_target": "team",
+                "eye_contact_pct": 0.58,
+                "gesture_tags": [
+                  "hand_explaining_small",
+                  "collaborative_nod"
+                ],
+                "fidgeting_level": 0.21,
+                "agitation_index": 0.2,
+                "quality": {
+                  "body_visible_ratio": 0.91,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R013",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 1130000,
+              "t_end_ms": 1131000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.66,
+                  "joy": 0.06,
+                  "anger": 0.04,
+                  "fear": 0.09,
+                  "sadness": 0.05,
+                  "surprise": 0.07,
+                  "disgust": 0.03
+                },
+                "valence": "neutral_positiva_suave",
+                "arousal": "medio_bajo",
+                "quality": {
+                  "face_visible_ratio": 0.82,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R014",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 1500000,
+              "t_end_ms": 1525000,
+              "payload": {
+                "asr_text": "Si documentamos el experimento con un checklist, evitamos repetir discusiones y ganamos tiempo en el cierre.",
+                "asr_confidence": 0.73,
+                "semantic_tags": [
+                  "process_improvement",
+                  "time_saving"
+                ],
+                "argumentation": {
+                  "thesis": "checklist para evitar retrabajo",
+                  "premises": [
+                    "documentar",
+                    "evitar repetición",
+                    "ganar tiempo"
+                  ],
+                  "structure_score": 0.76,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.8,
+                  "confidence": 0.87
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R015",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 1500000,
+              "t_end_ms": 1525000,
+              "payload": {
+                "volume_db": {
+                  "avg": 61.1,
+                  "p95": 64.8,
+                  "peak": 65.6
+                },
+                "pitch_hz": {
+                  "avg": 162,
+                  "p95": 178,
+                  "peak": 186
+                },
+                "speech_rate_ppm": 136,
+                "latency_s": {
+                  "avg": 1.6,
+                  "max": 2.3
+                },
+                "pause_ratio": 0.17,
+                "overlap_flag": false,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 0
+                },
+                "quality": {
+                  "snr_proxy_db": 11,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.82,
+                  "confidence": 0.87
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R016",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 1500000,
+              "t_end_ms": 1520000,
+              "payload": {
+                "posture": "upright",
+                "body_orientation": "towards_team",
+                "gaze_target": "team",
+                "eye_contact_pct": 0.55,
+                "gesture_tags": [
+                  "hand_explaining_small",
+                  "collaborative_nod"
+                ],
+                "fidgeting_level": 0.22,
+                "agitation_index": 0.2,
+                "quality": {
+                  "body_visible_ratio": 0.9,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P5-R017",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 1520000,
+              "t_end_ms": 1521000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.67,
+                  "joy": 0.08,
+                  "anger": 0.03,
+                  "fear": 0.08,
+                  "sadness": 0.04,
+                  "surprise": 0.07,
+                  "disgust": 0.03
+                },
+                "valence": "neutral_positiva",
+                "arousal": "medio_bajo",
+                "quality": {
+                  "face_visible_ratio": 0.82,
+                  "confidence": 0.92
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id_seccion": "SEC-IND-P2-NU-002",
+        "id_usuario": "Luis Martínez",
+        "json": {
+          "spec_version": "0.3-proto",
+          "rubric_version": "HSE-r0",
+          "model_versions": {
+            "vision_model": "vision-proto-0.9",
+            "voice_model": "voice-proto-0.8",
+            "asr_model": "asr-proto-0.7"
+          },
+          "session_meta": {
+            "session_id": "HSL-POC-SESSION-03",
+            "case_id": "SEV2-AUTH-TOKEN",
+            "duration_ms": 1800000,
+            "participants_expected": 5,
+            "generated_at": "2026-01-02T15:10:00Z"
+          },
+          "person": {
+            "person_id": "P2",
+            "person_name": "Luis Martínez",
+            "role_en_sesion": "Dev (evaluado)"
+          },
+          "media": {
+            "camera_id": "table_center",
+            "sync_offset_ms": 0,
+            "audio_source": "camera_far_field"
+          },
+          "reports": [
+            {
+              "obs_id": "P2-R001",
+              "source_cell": "voice",
+              "stream": "diarization_segment",
+              "t_start_ms": 140000,
+              "t_end_ms": 175000,
+              "payload": {
+                "speaker_id": "S2",
+                "speaker_person_link": {
+                  "person_id": "P2",
+                  "p": 0.91
+                },
+                "overlap_flag": false,
+                "speech_activity": {
+                  "voiced_ratio": 0.72,
+                  "silence_ratio": 0.28
+                },
+                "confidence": 0.9
+              }
+            },
+            {
+              "obs_id": "P2-R002",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 150000,
+              "t_end_ms": 180000,
+              "payload": {
+                "volume_db": {
+                  "avg": 62.9,
+                  "p95": 66.3,
+                  "peak": 67.1
+                },
+                "pitch_hz": {
+                  "avg": 159,
+                  "p95": 178,
+                  "peak": 186
+                },
+                "speech_rate_ppm": 152,
+                "latency_s": {
+                  "avg": 1.3,
+                  "max": 2.0
+                },
+                "pause_ratio": 0.18,
+                "turn_taking": {
+                  "turns_count": 2,
+                  "interruptions_made": 0,
+                  "interruptions_received": 2
+                },
+                "quality": {
+                  "snr_proxy_db": 13,
+                  "clipping_ratio": 0.01,
+                  "coverage": 0.9,
+                  "confidence": 0.91
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R003",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 180000,
+              "t_end_ms": 210000,
+              "payload": {
+                "posture": "upright",
+                "body_orientation": "screen_then_team",
+                "eye_contact_pct": 0.64,
+                "gesture_tags": [
+                  "screen_pointing",
+                  "hand_explaining"
+                ],
+                "fidgeting_level": 0.24,
+                "agitation_index": 0.26,
+                "quality": {
+                  "body_visible_ratio": 0.88,
+                  "confidence": 0.91
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R004",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 210000,
+              "t_end_ms": 211000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.55,
+                  "joy": 0.06,
+                  "anger": 0.16,
+                  "fear": 0.07,
+                  "sadness": 0.04,
+                  "surprise": 0.07,
+                  "disgust": 0.05
+                },
+                "valence": "mixta_negativa",
+                "arousal": "medio",
+                "quality": {
+                  "face_visible_ratio": 0.82,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R005",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 420000,
+              "t_end_ms": 470000,
+              "payload": {
+                "asr_text": "Creo que el fallo está en la expiración del token. Ajustamos TTL o forzamos refresh para reducir 401 intermitentes.",
+                "asr_confidence": 0.78,
+                "argumentation": {
+                  "thesis": "expiración token",
+                  "premises": [
+                    "401",
+                    "intermitencia",
+                    "TTL",
+                    "refresh"
+                  ],
+                  "structure_score": 0.84,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.89,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R006",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 660000,
+              "t_end_ms": 690000,
+              "payload": {
+                "volume_db": {
+                  "avg": 64.8,
+                  "p95": 68.9,
+                  "peak": 69.5
+                },
+                "pitch_hz": {
+                  "avg": 165,
+                  "p95": 190,
+                  "peak": 198
+                },
+                "speech_rate_ppm": 160,
+                "latency_s": {
+                  "avg": 2.0,
+                  "max": 3.1
+                },
+                "pause_ratio": 0.2,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 1
+                },
+                "quality": {
+                  "snr_proxy_db": 12,
+                  "clipping_ratio": 0.03,
+                  "coverage": 0.88,
+                  "confidence": 0.89
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R007",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 660000,
+              "t_end_ms": 690000,
+              "payload": {
+                "posture": "slightly_tense",
+                "eye_contact_pct": 0.48,
+                "gesture_tags": [
+                  "self_touch",
+                  "micro_shrug"
+                ],
+                "fidgeting_level": 0.42,
+                "agitation_index": 0.38,
+                "quality": {
+                  "body_visible_ratio": 0.84,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R008",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 690000,
+              "t_end_ms": 691000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.52,
+                  "joy": 0.04,
+                  "anger": 0.2,
+                  "fear": 0.08,
+                  "sadness": 0.05,
+                  "surprise": 0.06,
+                  "disgust": 0.05
+                },
+                "valence": "negativa",
+                "arousal": "medio_alto",
+                "quality": {
+                  "face_visible_ratio": 0.78,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R009",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 960000,
+              "t_end_ms": 990000,
+              "payload": {
+                "volume_db": {
+                  "avg": 66.9,
+                  "p95": 71.2,
+                  "peak": 72.3
+                },
+                "pitch_hz": {
+                  "avg": 172,
+                  "p95": 206,
+                  "peak": 214
+                },
+                "speech_rate_ppm": 172,
+                "latency_s": {
+                  "avg": 3.8,
+                  "max": 4.9
+                },
+                "pause_ratio": 0.22,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 1
+                },
+                "quality": {
+                  "snr_proxy_db": 12,
+                  "clipping_ratio": 0.05,
+                  "coverage": 0.88,
+                  "confidence": 0.89
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R010",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 1020000,
+              "t_end_ms": 1060000,
+              "payload": {
+                "asr_text": "Entiendo el punto. Ajustemos el scope y dejemos esto como mitigación temporal; la solución definitiva queda para después.",
+                "asr_confidence": 0.76,
+                "argumentation": {
+                  "reframe": "de ideal a viable",
+                  "goal_orientation": "entrega",
+                  "structure_score": 0.82
+                },
+                "quality": {
+                  "coverage": 0.9,
+                  "confidence": 0.91
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R011",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 1500000,
+              "t_end_ms": 1515000,
+              "payload": {
+                "posture": "open",
+                "eye_contact_pct": 0.7,
+                "gesture_tags": [
+                  "collaborative_nod",
+                  "open_palms"
+                ],
+                "fidgeting_level": 0.18,
+                "agitation_index": 0.18,
+                "quality": {
+                  "body_visible_ratio": 0.91,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P2-R012",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 1515000,
+              "t_end_ms": 1516000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.62,
+                  "joy": 0.1,
+                  "anger": 0.06,
+                  "fear": 0.04,
+                  "sadness": 0.03,
+                  "surprise": 0.1,
+                  "disgust": 0.05
+                },
+                "valence": "neutral_positiva",
+                "arousal": "medio_bajo",
+                "quality": {
+                  "face_visible_ratio": 0.85,
+                  "confidence": 0.93
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id_seccion": "SEC-IND-P3-NU-002",
+        "id_usuario": "Marta González",
+        "json": {
+          "spec_version": "0.3-proto",
+          "rubric_version": "HSE-r0",
+          "model_versions": {
+            "vision_model": "vision-proto-0.9",
+            "voice_model": "voice-proto-0.8",
+            "asr_model": "asr-proto-0.7"
+          },
+          "session_meta": {
+            "session_id": "HSL-POC-SESSION-03",
+            "case_id": "SEV2-AUTH-TOKEN",
+            "duration_ms": 1800000,
+            "participants_expected": 5,
+            "generated_at": "2026-01-02T15:10:00Z"
+          },
+          "person": {
+            "person_id": "P3",
+            "person_name": "Marta González",
+            "role_en_sesion": "QA"
+          },
+          "media": {
+            "camera_id": "table_center",
+            "sync_offset_ms": 0,
+            "audio_source": "camera_far_field"
+          },
+          "reports": [
+            {
+              "obs_id": "P3-R001",
+              "source_cell": "voice",
+              "stream": "diarization_segment",
+              "t_start_ms": 285000,
+              "t_end_ms": 325000,
+              "payload": {
+                "speaker_id": "S3",
+                "speaker_person_link": {
+                  "person_id": "P3",
+                  "p": 0.92
+                },
+                "overlap_flag": false,
+                "speech_activity": {
+                  "voiced_ratio": 0.7,
+                  "silence_ratio": 0.3
+                },
+                "confidence": 0.91
+              }
+            },
+            {
+              "obs_id": "P3-R002",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 295000,
+              "t_end_ms": 330000,
+              "payload": {
+                "volume_db": {
+                  "avg": 61.2,
+                  "p95": 64.6,
+                  "peak": 65.1
+                },
+                "pitch_hz": {
+                  "avg": 166,
+                  "p95": 182,
+                  "peak": 188
+                },
+                "speech_rate_ppm": 142,
+                "latency_s": {
+                  "avg": 1.1,
+                  "max": 1.7
+                },
+                "pause_ratio": 0.16,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 0
+                },
+                "quality": {
+                  "snr_proxy_db": 13,
+                  "clipping_ratio": 0.01,
+                  "coverage": 0.86,
+                  "confidence": 0.89
+                }
+              }
+            },
+            {
+              "obs_id": "P3-R003",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 330000,
+              "t_end_ms": 372000,
+              "payload": {
+                "asr_text": "Si el bug es intermitente, necesitamos logs correlacionados con carga u horarios. Sin evidencia, TTL es hipótesis.",
+                "asr_confidence": 0.81,
+                "argumentation": {
+                  "thesis": "observabilidad primero",
+                  "premises": [
+                    "intermitencia",
+                    "correlación",
+                    "logs",
+                    "carga"
+                  ],
+                  "structure_score": 0.88,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.87,
+                  "confidence": 0.93
+                }
+              }
+            },
+            {
+              "obs_id": "P3-R004",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 372000,
+              "t_end_ms": 390000,
+              "payload": {
+                "posture": "upright",
+                "eye_contact_pct": 0.66,
+                "gaze_target": "team_then_screen",
+                "gesture_tags": [
+                  "hand_explaining",
+                  "screen_pointing"
+                ],
+                "fidgeting_level": 0.16,
+                "agitation_index": 0.18,
+                "quality": {
+                  "body_visible_ratio": 0.9,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P3-R005",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 390000,
+              "t_end_ms": 391000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.6,
+                  "joy": 0.05,
+                  "anger": 0.06,
+                  "fear": 0.05,
+                  "sadness": 0.03,
+                  "surprise": 0.18,
+                  "disgust": 0.03
+                },
+                "valence": "mixta",
+                "arousal": "medio",
+                "quality": {
+                  "face_visible_ratio": 0.84,
+                  "confidence": 0.9
+                }
+              }
+            },
+            {
+              "obs_id": "P3-R006",
+              "source_cell": "voice",
+              "stream": "asr_segment",
+              "t_start_ms": 705000,
+              "t_end_ms": 735000,
+              "payload": {
+                "asr_text": "Propongo definir criterios de reproducción: pasos, entorno y log mínimo. Si no, estaremos discutiendo opiniones.",
+                "asr_confidence": 0.79,
+                "argumentation": {
+                  "thesis": "criterios de reproducción",
+                  "premises": [
+                    "pasos",
+                    "entorno",
+                    "log mínimo"
+                  ],
+                  "structure_score": 0.86,
+                  "evidence_flag": true
+                },
+                "quality": {
+                  "coverage": 0.85,
+                  "confidence": 0.91
+                }
+              }
+            },
+            {
+              "obs_id": "P3-R007",
+              "source_cell": "voice",
+              "stream": "prosody_window",
+              "t_start_ms": 705000,
+              "t_end_ms": 740000,
+              "payload": {
+                "volume_db": {
+                  "avg": 62.0,
+                  "p95": 65.4,
+                  "peak": 66.0
+                },
+                "pitch_hz": {
+                  "avg": 168,
+                  "p95": 186,
+                  "peak": 192
+                },
+                "speech_rate_ppm": 146,
+                "latency_s": {
+                  "avg": 1.0,
+                  "max": 1.5
+                },
+                "pause_ratio": 0.14,
+                "turn_taking": {
+                  "turns_count": 1,
+                  "interruptions_made": 0,
+                  "interruptions_received": 1
+                },
+                "quality": {
+                  "snr_proxy_db": 13,
+                  "clipping_ratio": 0.02,
+                  "coverage": 0.86,
+                  "confidence": 0.89
+                }
+              }
+            },
+            {
+              "obs_id": "P3-R008",
+              "source_cell": "vision",
+              "stream": "behavior_window",
+              "t_start_ms": 720000,
+              "t_end_ms": 740000,
+              "payload": {
+                "posture": "upright",
+                "eye_contact_pct": 0.6,
+                "gesture_tags": [
+                  "pointing_to_screen",
+                  "hand_explaining"
+                ],
+                "fidgeting_level": 0.2,
+                "agitation_index": 0.22,
+                "quality": {
+                  "body_visible_ratio": 0.9,
+                  "confidence": 0.92
+                }
+              }
+            },
+            {
+              "obs_id": "P3-R009",
+              "source_cell": "vision",
+              "stream": "emotion_window",
+              "t_start_ms": 740000,
+              "t_end_ms": 741000,
+              "payload": {
+                "face_emotion_probs": {
+                  "neutral": 0.57,
+                  "joy": 0.05,
+                  "anger": 0.05,
+                  "fear": 0.04,
+                  "sadness": 0.03,
+                  "surprise": 0.23,
+                  "disgust": 0.03
+                },
+                "valence": "mixta",
+                "arousal": "medio",
+                "quality": {
+                  "face_visible_ratio": 0.84,
+                  "confidence": 0.9
+                }
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "reports_flat": [
+      {
+        "obs_id": "P4-R000",
+        "source_cell": "use_case",
+        "stream": "case_context",
+        "t_start_ms": 0,
+        "t_end_ms": 20000,
+        "payload": {
+          "scenario": "sprint simulado 30min: bug 401 intermitente por expiración/refresh de token",
+          "success_criteria": [
+            "identificar hipótesis raíz",
+            "acotar alcance (scope control)",
+            "definir mitigación mínima viable",
+            "acordar dueños y próximos pasos"
+          ],
+          "constraints": [
+            "tiempo limitado",
+            "audio far-field",
+            "equipo de 5",
+            "alta presión por entrega"
+          ],
+          "rubric_focus": [
+            "RC",
+            "AGT",
+            "CA",
+            "LID",
+            "CC"
+          ]
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P5-R000",
+        "source_cell": "use_case",
+        "stream": "case_context",
+        "t_start_ms": 0,
+        "t_end_ms": 20000,
+        "payload": {
+          "scenario": "bug 401 intermitente; presión por entrega; junior aporta con observabilidad y checklist",
+          "rubric_focus": [
+            "RF",
+            "GE",
+            "CA",
+            "DS",
+            "AGT"
+          ],
+          "constraints": [
+            "audio far-field",
+            "posible inhibición por jerarquía",
+            "tiempo corto"
+          ]
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P1-R001",
+        "source_cell": "voice",
+        "stream": "diarization_segment",
+        "t_start_ms": 20000,
+        "t_end_ms": 42000,
+        "payload": {
+          "speaker_id": "S1",
+          "speaker_person_link": {
+            "person_id": "P1",
+            "p": 0.94
+          },
+          "overlap_flag": false,
+          "speech_activity": {
+            "voiced_ratio": 0.78,
+            "silence_ratio": 0.22
+          },
+          "confidence": 0.92
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P1-R002",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 25000,
+        "t_end_ms": 55000,
+        "payload": {
+          "volume_db": {
+            "avg": 68.1,
+            "p95": 72.0,
+            "peak": 73.0
+          },
+          "pitch_hz": {
+            "avg": 142,
+            "p95": 160,
+            "peak": 168
+          },
+          "speech_rate_ppm": 135,
+          "latency_s": {
+            "avg": 0.8,
+            "max": 1.4
+          },
+          "pause_ratio": 0.12,
+          "turn_taking": {
+            "turns_count": 2,
+            "interruptions_made": 0,
+            "interruptions_received": 1
+          },
+          "quality": {
+            "snr_proxy_db": 17,
+            "clipping_ratio": 0.02,
+            "coverage": 0.96,
+            "confidence": 0.95
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P1-R003",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 26000,
+        "t_end_ms": 52000,
+        "payload": {
+          "posture": "open_upright",
+          "body_orientation": "towards_team",
+          "eye_contact_pct": 0.8,
+          "gaze_target": "team",
+          "head_pose_deg": {
+            "yaw": 5,
+            "pitch": -2,
+            "roll": 1
+          },
+          "gesture_tags": [
+            "open_palms",
+            "turn_inviting",
+            "hand_explaining"
+          ],
+          "fidgeting_level": 0.12,
+          "agitation_index": 0.18,
+          "quality": {
+            "body_visible_ratio": 0.92,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P1-R004",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 52000,
+        "t_end_ms": 53000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.62,
+            "joy": 0.18,
+            "anger": 0.05,
+            "fear": 0.03,
+            "sadness": 0.02,
+            "surprise": 0.07,
+            "disgust": 0.03
+          },
+          "valence": "positiva_moderada",
+          "arousal": "medio",
+          "quality": {
+            "face_visible_ratio": 0.86,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P4-R001",
+        "source_cell": "voice",
+        "stream": "diarization_segment",
+        "t_start_ms": 85000,
+        "t_end_ms": 112000,
+        "payload": {
+          "speaker_id": "S4",
+          "speaker_person_link": {
+            "person_id": "P4",
+            "p": 0.9
+          },
+          "overlap_flag": false,
+          "speech_activity": {
+            "voiced_ratio": 0.66,
+            "silence_ratio": 0.34
+          },
+          "confidence": 0.9
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R002",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 85000,
+        "t_end_ms": 112000,
+        "payload": {
+          "volume_db": {
+            "avg": 61.2,
+            "p95": 64.6,
+            "peak": 65.4
+          },
+          "pitch_hz": {
+            "avg": 146,
+            "p95": 160,
+            "peak": 168
+          },
+          "speech_rate_ppm": 132,
+          "latency_s": {
+            "avg": 1.1,
+            "max": 1.8
+          },
+          "pause_ratio": 0.15,
+          "overlap_flag": false,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 0
+          },
+          "quality": {
+            "snr_proxy_db": 12,
+            "clipping_ratio": 0.02,
+            "coverage": 0.83,
+            "confidence": 0.88
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R004",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 100000,
+        "t_end_ms": 145000,
+        "payload": {
+          "posture": "open_upright",
+          "body_orientation": "towards_team",
+          "gaze_target": "team",
+          "eye_contact_pct": 0.82,
+          "gesture_tags": [
+            "turn_balancing",
+            "open_palms",
+            "hand_calming"
+          ],
+          "fidgeting_level": 0.1,
+          "agitation_index": 0.12,
+          "quality": {
+            "body_visible_ratio": 0.92,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R003",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 112000,
+        "t_end_ms": 142000,
+        "payload": {
+          "asr_text": "Propongo acordar criterio de éxito y luego definir el plan en tres pasos: evidencia mínima, mitigación y decisión de alcance.",
+          "asr_confidence": 0.78,
+          "semantic_tags": [
+            "mediation",
+            "decision_framework",
+            "scope_control"
+          ],
+          "argumentation": {
+            "thesis": "enfoque estructurado de mediación",
+            "premises": [
+              "criterio de éxito",
+              "evidencia mínima",
+              "mitigación",
+              "alcance"
+            ],
+            "structure_score": 0.86,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.85,
+            "confidence": 0.91
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P2-R001",
+        "source_cell": "voice",
+        "stream": "diarization_segment",
+        "t_start_ms": 140000,
+        "t_end_ms": 175000,
+        "payload": {
+          "speaker_id": "S2",
+          "speaker_person_link": {
+            "person_id": "P2",
+            "p": 0.91
+          },
+          "overlap_flag": false,
+          "speech_activity": {
+            "voiced_ratio": 0.72,
+            "silence_ratio": 0.28
+          },
+          "confidence": 0.9
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P4-R005",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 145000,
+        "t_end_ms": 146000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.72,
+            "joy": 0.08,
+            "anger": 0.03,
+            "fear": 0.03,
+            "sadness": 0.02,
+            "surprise": 0.09,
+            "disgust": 0.03
+          },
+          "valence": "neutral_positiva",
+          "arousal": "medio_bajo",
+          "quality": {
+            "face_visible_ratio": 0.86,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P2-R002",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 150000,
+        "t_end_ms": 180000,
+        "payload": {
+          "volume_db": {
+            "avg": 62.9,
+            "p95": 66.3,
+            "peak": 67.1
+          },
+          "pitch_hz": {
+            "avg": 159,
+            "p95": 178,
+            "peak": 186
+          },
+          "speech_rate_ppm": 152,
+          "latency_s": {
+            "avg": 1.3,
+            "max": 2.0
+          },
+          "pause_ratio": 0.18,
+          "turn_taking": {
+            "turns_count": 2,
+            "interruptions_made": 0,
+            "interruptions_received": 2
+          },
+          "quality": {
+            "snr_proxy_db": 13,
+            "clipping_ratio": 0.01,
+            "coverage": 0.9,
+            "confidence": 0.91
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P2-R003",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 180000,
+        "t_end_ms": 210000,
+        "payload": {
+          "posture": "upright",
+          "body_orientation": "screen_then_team",
+          "eye_contact_pct": 0.64,
+          "gesture_tags": [
+            "screen_pointing",
+            "hand_explaining"
+          ],
+          "fidgeting_level": 0.24,
+          "agitation_index": 0.26,
+          "quality": {
+            "body_visible_ratio": 0.88,
+            "confidence": 0.91
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P5-R001",
+        "source_cell": "voice",
+        "stream": "diarization_segment",
+        "t_start_ms": 205000,
+        "t_end_ms": 245000,
+        "payload": {
+          "speaker_id": "S5",
+          "speaker_person_link": {
+            "person_id": "P5",
+            "p": 0.86
+          },
+          "overlap_flag": false,
+          "speech_activity": {
+            "voiced_ratio": 0.58,
+            "silence_ratio": 0.42
+          },
+          "confidence": 0.88
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P1-R005",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 210000,
+        "t_end_ms": 255000,
+        "payload": {
+          "asr_text": "Dividamos el problema: reproducimos el error, aislamos causa y cerramos con mitigación mínima viable. Luego iteramos.",
+          "asr_confidence": 0.82,
+          "argumentation": {
+            "thesis": "control por etapas",
+            "premises": [
+              "reproducibilidad",
+              "aislamiento",
+              "mitigación"
+            ],
+            "structure_score": 0.88,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.92,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P2-R004",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 210000,
+        "t_end_ms": 211000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.55,
+            "joy": 0.06,
+            "anger": 0.16,
+            "fear": 0.07,
+            "sadness": 0.04,
+            "surprise": 0.07,
+            "disgust": 0.05
+          },
+          "valence": "mixta_negativa",
+          "arousal": "medio",
+          "quality": {
+            "face_visible_ratio": 0.82,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P5-R002",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 210000,
+        "t_end_ms": 250000,
+        "payload": {
+          "volume_db": {
+            "avg": 57.6,
+            "p95": 60.8,
+            "peak": 61.6
+          },
+          "pitch_hz": {
+            "avg": 174,
+            "p95": 194,
+            "peak": 201
+          },
+          "speech_rate_ppm": 118,
+          "latency_s": {
+            "avg": 2.6,
+            "max": 3.5
+          },
+          "pause_ratio": 0.26,
+          "overlap_flag": false,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 1
+          },
+          "quality": {
+            "snr_proxy_db": 10,
+            "clipping_ratio": 0.03,
+            "coverage": 0.78,
+            "confidence": 0.83
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R003",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 240000,
+        "t_end_ms": 265000,
+        "payload": {
+          "posture": "closed",
+          "body_orientation": "slightly_away",
+          "gaze_target": "down",
+          "eye_contact_pct": 0.33,
+          "gesture_tags": [
+            "self_touch",
+            "minimal_gestures",
+            "micro_shrug"
+          ],
+          "fidgeting_level": 0.39,
+          "agitation_index": 0.31,
+          "quality": {
+            "body_visible_ratio": 0.88,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R004",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 265000,
+        "t_end_ms": 266000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.7,
+            "joy": 0.03,
+            "anger": 0.04,
+            "fear": 0.1,
+            "sadness": 0.05,
+            "surprise": 0.05,
+            "disgust": 0.03
+          },
+          "valence": "negativa_suave",
+          "arousal": "medio",
+          "quality": {
+            "face_visible_ratio": 0.78,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P3-R001",
+        "source_cell": "voice",
+        "stream": "diarization_segment",
+        "t_start_ms": 285000,
+        "t_end_ms": 325000,
+        "payload": {
+          "speaker_id": "S3",
+          "speaker_person_link": {
+            "person_id": "P3",
+            "p": 0.92
+          },
+          "overlap_flag": false,
+          "speech_activity": {
+            "voiced_ratio": 0.7,
+            "silence_ratio": 0.3
+          },
+          "confidence": 0.91
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P3-R002",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 295000,
+        "t_end_ms": 330000,
+        "payload": {
+          "volume_db": {
+            "avg": 61.2,
+            "p95": 64.6,
+            "peak": 65.1
+          },
+          "pitch_hz": {
+            "avg": 166,
+            "p95": 182,
+            "peak": 188
+          },
+          "speech_rate_ppm": 142,
+          "latency_s": {
+            "avg": 1.1,
+            "max": 1.7
+          },
+          "pause_ratio": 0.16,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 0
+          },
+          "quality": {
+            "snr_proxy_db": 13,
+            "clipping_ratio": 0.01,
+            "coverage": 0.86,
+            "confidence": 0.89
+          }
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P3-R003",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 330000,
+        "t_end_ms": 372000,
+        "payload": {
+          "asr_text": "Si el bug es intermitente, necesitamos logs correlacionados con carga u horarios. Sin evidencia, TTL es hipótesis.",
+          "asr_confidence": 0.81,
+          "argumentation": {
+            "thesis": "observabilidad primero",
+            "premises": [
+              "intermitencia",
+              "correlación",
+              "logs",
+              "carga"
+            ],
+            "structure_score": 0.88,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.87,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P3-R004",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 372000,
+        "t_end_ms": 390000,
+        "payload": {
+          "posture": "upright",
+          "eye_contact_pct": 0.66,
+          "gaze_target": "team_then_screen",
+          "gesture_tags": [
+            "hand_explaining",
+            "screen_pointing"
+          ],
+          "fidgeting_level": 0.16,
+          "agitation_index": 0.18,
+          "quality": {
+            "body_visible_ratio": 0.9,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P1-R006",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 390000,
+        "t_end_ms": 420000,
+        "payload": {
+          "volume_db": {
+            "avg": 66.9,
+            "p95": 70.2,
+            "peak": 71.0
+          },
+          "pitch_hz": {
+            "avg": 146,
+            "p95": 165,
+            "peak": 170
+          },
+          "speech_rate_ppm": 138,
+          "latency_s": {
+            "avg": 1.1,
+            "max": 1.8
+          },
+          "pause_ratio": 0.15,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 0
+          },
+          "quality": {
+            "snr_proxy_db": 16,
+            "clipping_ratio": 0.02,
+            "coverage": 0.94,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P1-R007",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 390000,
+        "t_end_ms": 420000,
+        "payload": {
+          "posture": "upright",
+          "body_orientation": "team_then_screen",
+          "eye_contact_pct": 0.7,
+          "gaze_target": "screen_then_team",
+          "gesture_tags": [
+            "finger_counting",
+            "screen_pointing"
+          ],
+          "fidgeting_level": 0.18,
+          "agitation_index": 0.22,
+          "quality": {
+            "body_visible_ratio": 0.9,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P3-R005",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 390000,
+        "t_end_ms": 391000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.6,
+            "joy": 0.05,
+            "anger": 0.06,
+            "fear": 0.05,
+            "sadness": 0.03,
+            "surprise": 0.18,
+            "disgust": 0.03
+          },
+          "valence": "mixta",
+          "arousal": "medio",
+          "quality": {
+            "face_visible_ratio": 0.84,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P2-R005",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 420000,
+        "t_end_ms": 470000,
+        "payload": {
+          "asr_text": "Creo que el fallo está en la expiración del token. Ajustamos TTL o forzamos refresh para reducir 401 intermitentes.",
+          "asr_confidence": 0.78,
+          "argumentation": {
+            "thesis": "expiración token",
+            "premises": [
+              "401",
+              "intermitencia",
+              "TTL",
+              "refresh"
+            ],
+            "structure_score": 0.84,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.89,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P5-R005",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 420000,
+        "t_end_ms": 460000,
+        "payload": {
+          "volume_db": {
+            "avg": 58.2,
+            "p95": 62.0,
+            "peak": 63.1
+          },
+          "pitch_hz": {
+            "avg": 176,
+            "p95": 198,
+            "peak": 206
+          },
+          "speech_rate_ppm": 124,
+          "latency_s": {
+            "avg": 2.1,
+            "max": 3.0
+          },
+          "pause_ratio": 0.24,
+          "overlap_flag": true,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 2
+          },
+          "quality": {
+            "snr_proxy_db": 10,
+            "clipping_ratio": 0.03,
+            "coverage": 0.76,
+            "confidence": 0.82
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R006",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 430000,
+        "t_end_ms": 470000,
+        "payload": {
+          "asr_text": "No estoy seguro, pero si agregamos logs con session_id y timestamp, podríamos ver si el 401 coincide con expiración.",
+          "asr_confidence": 0.74,
+          "semantic_tags": [
+            "observability_first",
+            "uncertainty_acknowledgement"
+          ],
+          "argumentation": {
+            "contribution_type": "observability",
+            "evidence_flag": true,
+            "structure_score": 0.74,
+            "impact": "habilita correlación temporal y reduce discusión especulativa"
+          },
+          "quality": {
+            "coverage": 0.8,
+            "confidence": 0.87
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R007",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 440000,
+        "t_end_ms": 475000,
+        "payload": {
+          "posture": "slightly_tense",
+          "body_orientation": "towards_team",
+          "gaze_target": "team",
+          "eye_contact_pct": 0.45,
+          "gesture_tags": [
+            "hand_explaining_small",
+            "self_touch"
+          ],
+          "fidgeting_level": 0.34,
+          "agitation_index": 0.28,
+          "quality": {
+            "body_visible_ratio": 0.89,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R008",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 475000,
+        "t_end_ms": 476000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.64,
+            "joy": 0.03,
+            "anger": 0.05,
+            "fear": 0.12,
+            "sadness": 0.06,
+            "surprise": 0.07,
+            "disgust": 0.03
+          },
+          "valence": "mixta_negativa",
+          "arousal": "medio",
+          "quality": {
+            "face_visible_ratio": 0.8,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P4-R006",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 540000,
+        "t_end_ms": 575000,
+        "payload": {
+          "volume_db": {
+            "avg": 61.8,
+            "p95": 64.5,
+            "peak": 65.2
+          },
+          "pitch_hz": {
+            "avg": 149,
+            "p95": 162,
+            "peak": 168
+          },
+          "speech_rate_ppm": 136,
+          "latency_s": {
+            "avg": 1.0,
+            "max": 1.7
+          },
+          "pause_ratio": 0.14,
+          "overlap_flag": false,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 0
+          },
+          "quality": {
+            "snr_proxy_db": 12,
+            "clipping_ratio": 0.02,
+            "coverage": 0.84,
+            "confidence": 0.88
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R007",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 575000,
+        "t_end_ms": 620000,
+        "payload": {
+          "asr_text": "Para cerrar: evidencia primero, mitigación si aplica y dejamos el refactor fuera del sprint simulado.",
+          "asr_confidence": 0.79,
+          "semantic_tags": [
+            "delivery_focus",
+            "scope_control",
+            "timeboxing"
+          ],
+          "argumentation": {
+            "thesis": "cierre operativo con scope controlado",
+            "premises": [
+              "evidencia",
+              "mitigación",
+              "scope"
+            ],
+            "structure_score": 0.85,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.86,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R008",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 615000,
+        "t_end_ms": 640000,
+        "payload": {
+          "posture": "open",
+          "body_orientation": "towards_team",
+          "gaze_target": "team",
+          "eye_contact_pct": 0.77,
+          "gesture_tags": [
+            "turn_balancing",
+            "open_palms",
+            "deescalation_gesture"
+          ],
+          "fidgeting_level": 0.12,
+          "agitation_index": 0.14,
+          "quality": {
+            "body_visible_ratio": 0.93,
+            "confidence": 0.94
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R009",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 640000,
+        "t_end_ms": 641000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.68,
+            "joy": 0.1,
+            "anger": 0.04,
+            "fear": 0.03,
+            "sadness": 0.02,
+            "surprise": 0.1,
+            "disgust": 0.03
+          },
+          "valence": "neutral_positiva",
+          "arousal": "medio_bajo",
+          "quality": {
+            "face_visible_ratio": 0.86,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P2-R006",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 660000,
+        "t_end_ms": 690000,
+        "payload": {
+          "volume_db": {
+            "avg": 64.8,
+            "p95": 68.9,
+            "peak": 69.5
+          },
+          "pitch_hz": {
+            "avg": 165,
+            "p95": 190,
+            "peak": 198
+          },
+          "speech_rate_ppm": 160,
+          "latency_s": {
+            "avg": 2.0,
+            "max": 3.1
+          },
+          "pause_ratio": 0.2,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 1
+          },
+          "quality": {
+            "snr_proxy_db": 12,
+            "clipping_ratio": 0.03,
+            "coverage": 0.88,
+            "confidence": 0.89
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P2-R007",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 660000,
+        "t_end_ms": 690000,
+        "payload": {
+          "posture": "slightly_tense",
+          "eye_contact_pct": 0.48,
+          "gesture_tags": [
+            "self_touch",
+            "micro_shrug"
+          ],
+          "fidgeting_level": 0.42,
+          "agitation_index": 0.38,
+          "quality": {
+            "body_visible_ratio": 0.84,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P1-R008",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 690000,
+        "t_end_ms": 691000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.58,
+            "joy": 0.08,
+            "anger": 0.11,
+            "fear": 0.04,
+            "sadness": 0.03,
+            "surprise": 0.12,
+            "disgust": 0.04
+          },
+          "valence": "mixta",
+          "arousal": "medio_alto",
+          "quality": {
+            "face_visible_ratio": 0.8,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P2-R008",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 690000,
+        "t_end_ms": 691000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.52,
+            "joy": 0.04,
+            "anger": 0.2,
+            "fear": 0.08,
+            "sadness": 0.05,
+            "surprise": 0.06,
+            "disgust": 0.05
+          },
+          "valence": "negativa",
+          "arousal": "medio_alto",
+          "quality": {
+            "face_visible_ratio": 0.78,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P3-R006",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 705000,
+        "t_end_ms": 735000,
+        "payload": {
+          "asr_text": "Propongo definir criterios de reproducción: pasos, entorno y log mínimo. Si no, estaremos discutiendo opiniones.",
+          "asr_confidence": 0.79,
+          "argumentation": {
+            "thesis": "criterios de reproducción",
+            "premises": [
+              "pasos",
+              "entorno",
+              "log mínimo"
+            ],
+            "structure_score": 0.86,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.85,
+            "confidence": 0.91
+          }
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P3-R007",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 705000,
+        "t_end_ms": 740000,
+        "payload": {
+          "volume_db": {
+            "avg": 62.0,
+            "p95": 65.4,
+            "peak": 66.0
+          },
+          "pitch_hz": {
+            "avg": 168,
+            "p95": 186,
+            "peak": 192
+          },
+          "speech_rate_ppm": 146,
+          "latency_s": {
+            "avg": 1.0,
+            "max": 1.5
+          },
+          "pause_ratio": 0.14,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 1
+          },
+          "quality": {
+            "snr_proxy_db": 13,
+            "clipping_ratio": 0.02,
+            "coverage": 0.86,
+            "confidence": 0.89
+          }
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P3-R008",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 720000,
+        "t_end_ms": 740000,
+        "payload": {
+          "posture": "upright",
+          "eye_contact_pct": 0.6,
+          "gesture_tags": [
+            "pointing_to_screen",
+            "hand_explaining"
+          ],
+          "fidgeting_level": 0.2,
+          "agitation_index": 0.22,
+          "quality": {
+            "body_visible_ratio": 0.9,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P3-R009",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 740000,
+        "t_end_ms": 741000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.57,
+            "joy": 0.05,
+            "anger": 0.05,
+            "fear": 0.04,
+            "sadness": 0.03,
+            "surprise": 0.23,
+            "disgust": 0.03
+          },
+          "valence": "mixta",
+          "arousal": "medio",
+          "quality": {
+            "face_visible_ratio": 0.84,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P3",
+        "person_name": "Marta González"
+      },
+      {
+        "obs_id": "P1-R009",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 900000,
+        "t_end_ms": 945000,
+        "payload": {
+          "asr_text": "Necesitamos decidir: o mitigamos hoy o no llegamos. La solución perfecta queda fuera del sprint simulado.",
+          "asr_confidence": 0.78,
+          "argumentation": {
+            "thesis": "priorizar entrega",
+            "premises": [
+              "tiempo limitado",
+              "mitigación viable",
+              "scope control"
+            ],
+            "structure_score": 0.84,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.9,
+            "confidence": 0.91
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P1-R010",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 900000,
+        "t_end_ms": 940000,
+        "payload": {
+          "volume_db": {
+            "avg": 70.3,
+            "p95": 73.1,
+            "peak": 74.2
+          },
+          "pitch_hz": {
+            "avg": 154,
+            "p95": 176,
+            "peak": 182
+          },
+          "speech_rate_ppm": 160,
+          "latency_s": {
+            "avg": 1.8,
+            "max": 2.6
+          },
+          "pause_ratio": 0.1,
+          "turn_taking": {
+            "turns_count": 2,
+            "interruptions_made": 1,
+            "interruptions_received": 1
+          },
+          "quality": {
+            "snr_proxy_db": 15,
+            "clipping_ratio": 0.03,
+            "coverage": 0.93,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P1-R011",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 900000,
+        "t_end_ms": 930000,
+        "payload": {
+          "posture": "upright_slightly_tense",
+          "eye_contact_pct": 0.62,
+          "gesture_tags": [
+            "hand_chop",
+            "directive_pointing"
+          ],
+          "fidgeting_level": 0.22,
+          "agitation_index": 0.28,
+          "quality": {
+            "body_visible_ratio": 0.89,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P4-R010",
+        "source_cell": "voice",
+        "stream": "diarization_segment",
+        "t_start_ms": 915000,
+        "t_end_ms": 955000,
+        "payload": {
+          "speaker_id": "S4",
+          "speaker_person_link": {
+            "person_id": "P4",
+            "p": 0.89
+          },
+          "overlap_flag": true,
+          "speech_activity": {
+            "voiced_ratio": 0.72,
+            "silence_ratio": 0.28
+          },
+          "confidence": 0.88
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R011",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 915000,
+        "t_end_ms": 955000,
+        "payload": {
+          "volume_db": {
+            "avg": 63.0,
+            "p95": 66.4,
+            "peak": 67.2
+          },
+          "pitch_hz": {
+            "avg": 152,
+            "p95": 168,
+            "peak": 176
+          },
+          "speech_rate_ppm": 142,
+          "latency_s": {
+            "avg": 1.2,
+            "max": 2.0
+          },
+          "pause_ratio": 0.13,
+          "overlap_flag": true,
+          "turn_taking": {
+            "turns_count": 2,
+            "interruptions_made": 0,
+            "interruptions_received": 1
+          },
+          "quality": {
+            "snr_proxy_db": 11,
+            "clipping_ratio": 0.02,
+            "coverage": 0.82,
+            "confidence": 0.88
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R012",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 930000,
+        "t_end_ms": 965000,
+        "payload": {
+          "asr_text": "Estoy escuchando dos propuestas. Tomemos 2 minutos: definimos criterio de éxito, elegimos una mitigación y asignamos dueño.",
+          "asr_confidence": 0.78,
+          "semantic_tags": [
+            "mediation",
+            "decision_framework"
+          ],
+          "argumentation": {
+            "thesis": "estructura de mediación",
+            "premises": [
+              "criterio de éxito",
+              "mitigación",
+              "dueño"
+            ],
+            "structure_score": 0.84,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.86,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R013",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 930000,
+        "t_end_ms": 960000,
+        "payload": {
+          "posture": "open",
+          "body_orientation": "towards_team",
+          "gaze_target": "team",
+          "eye_contact_pct": 0.8,
+          "gesture_tags": [
+            "deescalation_gesture",
+            "turn_balancing",
+            "open_palms"
+          ],
+          "fidgeting_level": 0.1,
+          "agitation_index": 0.12,
+          "quality": {
+            "body_visible_ratio": 0.93,
+            "confidence": 0.94
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P2-R009",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 960000,
+        "t_end_ms": 990000,
+        "payload": {
+          "volume_db": {
+            "avg": 66.9,
+            "p95": 71.2,
+            "peak": 72.3
+          },
+          "pitch_hz": {
+            "avg": 172,
+            "p95": 206,
+            "peak": 214
+          },
+          "speech_rate_ppm": 172,
+          "latency_s": {
+            "avg": 3.8,
+            "max": 4.9
+          },
+          "pause_ratio": 0.22,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 1
+          },
+          "quality": {
+            "snr_proxy_db": 12,
+            "clipping_ratio": 0.05,
+            "coverage": 0.88,
+            "confidence": 0.89
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P4-R014",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 960000,
+        "t_end_ms": 961000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.74,
+            "joy": 0.08,
+            "anger": 0.03,
+            "fear": 0.03,
+            "sadness": 0.02,
+            "surprise": 0.07,
+            "disgust": 0.03
+          },
+          "valence": "neutral_positiva",
+          "arousal": "medio_bajo",
+          "quality": {
+            "face_visible_ratio": 0.85,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P2-R010",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 1020000,
+        "t_end_ms": 1060000,
+        "payload": {
+          "asr_text": "Entiendo el punto. Ajustemos el scope y dejemos esto como mitigación temporal; la solución definitiva queda para después.",
+          "asr_confidence": 0.76,
+          "argumentation": {
+            "reframe": "de ideal a viable",
+            "goal_orientation": "entrega",
+            "structure_score": 0.82
+          },
+          "quality": {
+            "coverage": 0.9,
+            "confidence": 0.91
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P5-R009",
+        "source_cell": "voice",
+        "stream": "diarization_segment",
+        "t_start_ms": 1080000,
+        "t_end_ms": 1120000,
+        "payload": {
+          "speaker_id": "S5",
+          "speaker_person_link": {
+            "person_id": "P5",
+            "p": 0.87
+          },
+          "overlap_flag": false,
+          "speech_activity": {
+            "voiced_ratio": 0.64,
+            "silence_ratio": 0.36
+          },
+          "confidence": 0.89
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R010",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 1080000,
+        "t_end_ms": 1120000,
+        "payload": {
+          "asr_text": "Podemos agregar logs con session_id y timestamp para correlacionar el 401 con la expiración del token.",
+          "asr_confidence": 0.75,
+          "semantic_tags": [
+            "observability_first",
+            "evidence_flag"
+          ],
+          "argumentation": {
+            "contribution_type": "observability",
+            "evidence_flag": true,
+            "structure_score": 0.78,
+            "impact": "habilita decisión basada en evidencia"
+          },
+          "quality": {
+            "coverage": 0.82,
+            "confidence": 0.88
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R011",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 1080000,
+        "t_end_ms": 1110000,
+        "payload": {
+          "volume_db": {
+            "avg": 60.4,
+            "p95": 64.0,
+            "peak": 65.0
+          },
+          "pitch_hz": {
+            "avg": 168,
+            "p95": 182,
+            "peak": 188
+          },
+          "speech_rate_ppm": 132,
+          "latency_s": {
+            "avg": 1.4,
+            "max": 2.0
+          },
+          "pause_ratio": 0.18,
+          "overlap_flag": false,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 0
+          },
+          "quality": {
+            "snr_proxy_db": 11,
+            "clipping_ratio": 0.02,
+            "coverage": 0.84,
+            "confidence": 0.86
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R012",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 1110000,
+        "t_end_ms": 1130000,
+        "payload": {
+          "posture": "upright",
+          "body_orientation": "towards_team",
+          "gaze_target": "team",
+          "eye_contact_pct": 0.58,
+          "gesture_tags": [
+            "hand_explaining_small",
+            "collaborative_nod"
+          ],
+          "fidgeting_level": 0.21,
+          "agitation_index": 0.2,
+          "quality": {
+            "body_visible_ratio": 0.91,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R013",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 1130000,
+        "t_end_ms": 1131000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.66,
+            "joy": 0.06,
+            "anger": 0.04,
+            "fear": 0.09,
+            "sadness": 0.05,
+            "surprise": 0.07,
+            "disgust": 0.03
+          },
+          "valence": "neutral_positiva_suave",
+          "arousal": "medio_bajo",
+          "quality": {
+            "face_visible_ratio": 0.82,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P4-R015",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 1210000,
+        "t_end_ms": 1255000,
+        "payload": {
+          "asr_text": "Alineo decisiones: 1) dueños de instrumentación, 2) criterio de validación, 3) mitigación temporal, 4) refactor fuera de alcance.",
+          "asr_confidence": 0.77,
+          "semantic_tags": [
+            "alignment",
+            "scope_control",
+            "agile_timeboxing"
+          ],
+          "argumentation": {
+            "thesis": "alineación y cierre de acuerdos",
+            "premises": [
+              "dueños",
+              "criterio de validación",
+              "mitigación",
+              "fuera de alcance"
+            ],
+            "structure_score": 0.86,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.84,
+            "confidence": 0.9
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R016",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 1210000,
+        "t_end_ms": 1255000,
+        "payload": {
+          "volume_db": {
+            "avg": 62.4,
+            "p95": 66.1,
+            "peak": 67.0
+          },
+          "pitch_hz": {
+            "avg": 150,
+            "p95": 166,
+            "peak": 174
+          },
+          "speech_rate_ppm": 146,
+          "latency_s": {
+            "avg": 1.1,
+            "max": 1.8
+          },
+          "pause_ratio": 0.12,
+          "overlap_flag": false,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 0
+          },
+          "quality": {
+            "snr_proxy_db": 12,
+            "clipping_ratio": 0.02,
+            "coverage": 0.83,
+            "confidence": 0.89
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R017",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 1210000,
+        "t_end_ms": 1245000,
+        "payload": {
+          "posture": "upright",
+          "body_orientation": "team_then_screen",
+          "gaze_target": "team",
+          "eye_contact_pct": 0.76,
+          "gesture_tags": [
+            "hand_explaining",
+            "open_palms",
+            "turn_balancing"
+          ],
+          "fidgeting_level": 0.12,
+          "agitation_index": 0.14,
+          "quality": {
+            "body_visible_ratio": 0.92,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P1-R012",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 1500000,
+        "t_end_ms": 1501000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.64,
+            "joy": 0.12,
+            "anger": 0.06,
+            "fear": 0.03,
+            "sadness": 0.02,
+            "surprise": 0.1,
+            "disgust": 0.03
+          },
+          "valence": "neutral_positiva",
+          "arousal": "medio_bajo",
+          "quality": {
+            "face_visible_ratio": 0.87,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P1",
+        "person_name": "Carlos Vega"
+      },
+      {
+        "obs_id": "P2-R011",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 1500000,
+        "t_end_ms": 1515000,
+        "payload": {
+          "posture": "open",
+          "eye_contact_pct": 0.7,
+          "gesture_tags": [
+            "collaborative_nod",
+            "open_palms"
+          ],
+          "fidgeting_level": 0.18,
+          "agitation_index": 0.18,
+          "quality": {
+            "body_visible_ratio": 0.91,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P5-R014",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 1500000,
+        "t_end_ms": 1525000,
+        "payload": {
+          "asr_text": "Si documentamos el experimento con un checklist, evitamos repetir discusiones y ganamos tiempo en el cierre.",
+          "asr_confidence": 0.73,
+          "semantic_tags": [
+            "process_improvement",
+            "time_saving"
+          ],
+          "argumentation": {
+            "thesis": "checklist para evitar retrabajo",
+            "premises": [
+              "documentar",
+              "evitar repetición",
+              "ganar tiempo"
+            ],
+            "structure_score": 0.76,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.8,
+            "confidence": 0.87
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R015",
+        "source_cell": "voice",
+        "stream": "prosody_window",
+        "t_start_ms": 1500000,
+        "t_end_ms": 1525000,
+        "payload": {
+          "volume_db": {
+            "avg": 61.1,
+            "p95": 64.8,
+            "peak": 65.6
+          },
+          "pitch_hz": {
+            "avg": 162,
+            "p95": 178,
+            "peak": 186
+          },
+          "speech_rate_ppm": 136,
+          "latency_s": {
+            "avg": 1.6,
+            "max": 2.3
+          },
+          "pause_ratio": 0.17,
+          "overlap_flag": false,
+          "turn_taking": {
+            "turns_count": 1,
+            "interruptions_made": 0,
+            "interruptions_received": 0
+          },
+          "quality": {
+            "snr_proxy_db": 11,
+            "clipping_ratio": 0.02,
+            "coverage": 0.82,
+            "confidence": 0.87
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P5-R016",
+        "source_cell": "vision",
+        "stream": "behavior_window",
+        "t_start_ms": 1500000,
+        "t_end_ms": 1520000,
+        "payload": {
+          "posture": "upright",
+          "body_orientation": "towards_team",
+          "gaze_target": "team",
+          "eye_contact_pct": 0.55,
+          "gesture_tags": [
+            "hand_explaining_small",
+            "collaborative_nod"
+          ],
+          "fidgeting_level": 0.22,
+          "agitation_index": 0.2,
+          "quality": {
+            "body_visible_ratio": 0.9,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P2-R012",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 1515000,
+        "t_end_ms": 1516000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.62,
+            "joy": 0.1,
+            "anger": 0.06,
+            "fear": 0.04,
+            "sadness": 0.03,
+            "surprise": 0.1,
+            "disgust": 0.05
+          },
+          "valence": "neutral_positiva",
+          "arousal": "medio_bajo",
+          "quality": {
+            "face_visible_ratio": 0.85,
+            "confidence": 0.93
+          }
+        },
+        "person_id": "P2",
+        "person_name": "Luis Martínez"
+      },
+      {
+        "obs_id": "P5-R017",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 1520000,
+        "t_end_ms": 1521000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.67,
+            "joy": 0.08,
+            "anger": 0.03,
+            "fear": 0.08,
+            "sadness": 0.04,
+            "surprise": 0.07,
+            "disgust": 0.03
+          },
+          "valence": "neutral_positiva",
+          "arousal": "medio_bajo",
+          "quality": {
+            "face_visible_ratio": 0.82,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P5",
+        "person_name": "Diego Pérez"
+      },
+      {
+        "obs_id": "P4-R018",
+        "source_cell": "voice",
+        "stream": "asr_segment",
+        "t_start_ms": 1650000,
+        "t_end_ms": 1690000,
+        "payload": {
+          "asr_text": "Cierre final: cada quien confirma su acción. Si aparece evidencia nueva, reencuadramos y ajustamos sin culpas.",
+          "asr_confidence": 0.76,
+          "semantic_tags": [
+            "psychological_safety",
+            "reframe",
+            "accountability"
+          ],
+          "argumentation": {
+            "thesis": "cierre con seguridad psicológica",
+            "premises": [
+              "confirmación de acciones",
+              "evidencia nueva",
+              "ajuste sin culpa"
+            ],
+            "structure_score": 0.84,
+            "evidence_flag": true
+          },
+          "quality": {
+            "coverage": 0.82,
+            "confidence": 0.89
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      },
+      {
+        "obs_id": "P4-R019",
+        "source_cell": "vision",
+        "stream": "emotion_window",
+        "t_start_ms": 1690000,
+        "t_end_ms": 1691000,
+        "payload": {
+          "face_emotion_probs": {
+            "neutral": 0.73,
+            "joy": 0.09,
+            "anger": 0.03,
+            "fear": 0.03,
+            "sadness": 0.02,
+            "surprise": 0.07,
+            "disgust": 0.03
+          },
+          "valence": "neutral_positiva",
+          "arousal": "bajo",
+          "quality": {
+            "face_visible_ratio": 0.84,
+            "confidence": 0.92
+          }
+        },
+        "person_id": "P4",
+        "person_name": "Ana Ruiz"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: pdf-generator-app
+    runtime: docker
+    plan: free
+    region: oregon
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
