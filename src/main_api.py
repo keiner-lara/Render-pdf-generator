@@ -47,7 +47,7 @@ app = FastAPI(
     description="API para gestión de telemetría y generación de informes psicoprofesionales"
 )
 
-# Configurar CORS (Importante si lo usas desde un Frontend)
+# Configurar CORS (Importante para un Frontend)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -75,7 +75,7 @@ generate_pdf_uc = GeneratePdfUseCase(report_repo, ai_adapter, xhtml2pdf_adapter)
 # --- MODELOS DE REQUEST/RESPONSE ---
 class GeneratePDFRequest(BaseModel):
     session_id: str
-    subject_id: str
+    subject_id: Optional[str] = None
 
 class GeneratePDFResponse(BaseModel):
     success: bool
@@ -87,15 +87,17 @@ class GeneratePDFResponse(BaseModel):
 
 @app.post("/generate-pdf", tags=["PDF Generation"], dependencies=[Depends(validate_api_key)])
 async def generate_pdf(request: GeneratePDFRequest):
-    """
-    Genera un PDF y lo retorna como descarga directa.
-    Requiere header X-API-KEY.
-    """
     try:
+        # 1. Convertir session_id (este siempre debe estar)
         session_uuid = uuid.UUID(request.session_id)
-        subject_uuid = uuid.UUID(request.subject_id)
         
-        # Obtenemos la ruta del PDF generado por el caso de uso
+        # 2. Solo convertir subject_id si NO es nulo
+        # Si es nulo o vacío, lo dejamos como None
+        subject_uuid = None
+        if request.subject_id and request.subject_id.lower() != "null":
+            subject_uuid = uuid.UUID(request.subject_id)
+        
+        # 3. Ejecutar Caso de Uso (ahora recibirá None si es grupal)
         pdf_path = generate_pdf_uc.execute(session_uuid, subject_uuid)
         
         if not pdf_path or not os.path.exists(pdf_path):
@@ -103,12 +105,14 @@ async def generate_pdf(request: GeneratePDFRequest):
             
         filename = os.path.basename(pdf_path)
         
-        # Retornamos como FileResponse (más eficiente que StreamingResponse para archivos en disco)
         return FileResponse(
             path=pdf_path, 
             filename=filename,
             media_type="application/pdf"
         )
+    except ValueError as e:
+        # Error si el formato del UUID es inválido
+        raise HTTPException(status_code=400, detail=f"Formato de ID inválido: {str(e)}")
     except Exception as e:
         print(f"Error en generate_pdf: {e}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -147,7 +151,7 @@ async def generate_pdf_url(request: GeneratePDFRequest):
     except Exception as e:
         return GeneratePDFResponse(success=False, message=f"Error: {str(e)}")
 
-# --- ENDPOINTS DE INGESTA (También protegidos) ---
+# --- ENDPOINTS DE INGESTA (protegidos) ---
 
 @app.post("/ingest/user", response_model=ResponseBase, dependencies=[Depends(validate_api_key)], tags=["Ingestion"])
 async def upsert_user(payload: UserUpsert):
