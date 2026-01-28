@@ -9,32 +9,45 @@ class SupabaseReportRepository(ReportRepositoryPort):
         self.supabase_url = supabase_url
         self.supabase_key = supabase_key
 
-    def get_report_content(self, session_id: uuid.UUID, subject_id: uuid.UUID) -> Optional[Dict[str, Any]]:
-        endpoint = f"{self.supabase_url}/rest/v1/vw_reports"
+    def get_report_content(self, session_id: uuid.UUID, subject_id: Optional[uuid.UUID]) -> Optional[Dict[str, Any]]:
+        # 1. Limpiamos la URL para evitar el doble slash //
+        base_url = self.supabase_url.rstrip('/')
+        endpoint = f"{base_url}/rest/v1/vw_reports"
+        
         headers = {
             "apikey": self.supabase_key,
             "Authorization": f"Bearer {self.supabase_key}",
             "Content-Type": "application/json",
             "Accept": "application/json",
         }
+        
+        # 2. SELECT SIMPLE (Porque la vista ya tiene las columnas unidas)
         params = {
             "session_id": f"eq.{session_id}",
-            "subject_id": f"eq.{subject_id}",
-            "select": "report_id,content_json,content_markdown,kind"
+            "select": "report_id,content_json,kind,app_session_id,case_title"
         }
-        
+
+        if subject_id:
+            params["subject_id"] = f"eq.{subject_id}"
+        else:
+            params["subject_id"] = "is.null"
+
         with httpx.Client() as client:
             try:
                 response = client.get(endpoint, headers=headers, params=params)
+                # Si esto da error, lo imprimimos para saber EXACTO qué dice Supabase
+                if response.status_code != 200:
+                    print(f"Error de Supabase ({response.status_code}): {response.text}")
+                
                 response.raise_for_status()
                 data = response.json()
                 if data and len(data) > 0:
                     return data[0]
             except Exception as e:
-                print(f"Error fetching report from Supabase: {e}")
+                print(f"Error técnico en Supabase Repo: {e}")
         return None
 
-    # --- IMPLEMENTACIONES OBLIGATORIAS (MÉTODOS FALTANTES) ---
+    # --- MÉTODOS OBLIGATORIOS PARA CUMPLIR EL PORT (Mantenlos así) ---
 
     def get_participants_with_roles(self, session_id: uuid.UUID) -> List[Dict[str, Any]]:
         return []
@@ -58,5 +71,4 @@ class SupabaseReportRepository(ReportRepositoryPort):
         return None
 
     def save_report_meta(self, session_id: uuid.UUID, subject_id: Optional[uuid.UUID], kind: str, markdown: str, json_data: Dict[str, Any], prompt_hash: str) -> uuid.UUID:
-        # Retorno un UUID dummy para evitar errores de tipo si se llama
         return uuid.uuid4()
